@@ -1,0 +1,172 @@
+"use client";
+
+import { Button } from "@/components/ui/button";
+import { ArrowRight, PlayCircle, Star, ChevronDown, CheckCircle2 } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+
+export function Hero() {
+    return (
+        <div className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden group">
+            {/* Background Images */}
+            <div className="absolute inset-0 w-full h-full">
+                {/* Placeholder for the gym image */}
+                <div className="absolute inset-0 bg-[#221910]" />
+
+                {/* Default Image */}
+                <Image
+                    src="/sfondo.jpeg"
+                    alt="Man lifting heavy weights in dark gym"
+                    fill
+                    className="object-cover object-center opacity-60"
+                    priority
+                />
+
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#221910] via-transparent to-[#221910]/60 lg:bg-gradient-to-r lg:from-[#221910] lg:via-[#221910]/80 lg:to-[#221910]/40 mix-blend-multiply pointer-events-none" />
+                <div className="absolute inset-0 bg-black/40 pointer-events-none" />
+                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#221910] to-transparent pointer-events-none" />
+            </div>
+
+            {/* Content Container */}
+            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-24 pb-12 sm:pt-20 flex flex-col justify-center h-full">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                    {/* Text Content */}
+                    <div className="lg:col-span-7 space-y-4 lg:space-y-6 text-center lg:text-left">
+
+                        {/* Trust Badge */}
+
+
+                        {/* Logo & Headline */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.4 }}
+                            className="flex flex-col items-center lg:items-start space-y-2"
+                        >
+                            <div className="relative w-full max-w-[320px] sm:max-w-[500px] lg:max-w-[700px] aspect-[3/1] lg:aspect-[4/1]">
+                                <Image
+                                    src="/Logo_Domcast-2.png"
+                                    alt="Domcast Logo"
+                                    fill
+                                    className="object-contain object-center lg:object-left"
+                                    priority
+                                />
+                            </div>
+
+                            {/* Cursive Subtitle */}
+                            <h2 className="text-5xl sm:text-6xl lg:text-8xl text-center lg:text-left text-primary font-bold leading-tight font-[family-name:var(--font-caveat)] tracking-normal">
+                                "Supera i tuoi limiti"
+                            </h2>
+                        </motion.div>
+
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.5 }}
+                            className="text-base md:text-xl text-center lg:text-left text-gray-300 max-w-xl mx-auto lg:mx-0 font-light leading-relaxed px-4 lg:px-0 pt-2"
+                        >
+                            Programmi di allenamento scientifici e personalizzati per scolpire il tuo fisico e potenziare la tua mente.
+                        </motion.p>
+
+                        {/* CTA Buttons */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.6 }}
+                            className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 lg:gap-4 pt-4 lg:pt-6 px-4 sm:px-0"
+                        >
+                            <Button
+                                size="lg"
+                                className="w-full sm:w-auto px-6 py-5 sm:px-8 sm:py-6 text-sm sm:text-base lg:text-lg bg-primary hover:bg-primary/90 text-[#221910] font-bold rounded-xl transition-all transform hover:scale-105 shadow-lg shadow-primary/25 group"
+                                asChild
+                            >
+                                <Link href="/coaching">
+                                    Prenota una consulenza
+                                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                </Link>
+                            </Button>
+                            <Button
+                                size="lg"
+                                variant="outline"
+                                className="w-full sm:w-auto px-6 py-5 sm:px-8 sm:py-6 text-sm sm:text-base lg:text-lg bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-white/10 text-white font-semibold rounded-xl"
+                                asChild
+                            >
+                                <Link href="/transformations">
+                                    <PlayCircle className="text-primary mr-2 w-5 h-5" />
+                                    Guarda come lavoro
+                                </Link>
+                            </Button>
+                        </motion.div>
+
+                        {/* Social Proof / Stats */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.8 }}
+                            className="pt-6 lg:pt-8 border-t border-white/10 mt-6 lg:mt-8 flex flex-row flex-wrap justify-between sm:justify-start gap-4 md:gap-12"
+                        >
+                            <div className="text-center lg:text-left flex-1 min-w-[80px] sm:min-w-0 sm:flex-none">
+                                <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-white">500+</p>
+                                <p className="text-[10px] lg:text-sm text-gray-400 uppercase tracking-wider font-medium">Clienti Soddisfatti</p>
+                            </div>
+                            <div className="text-center lg:text-left flex-1 min-w-[80px] sm:min-w-0 sm:flex-none">
+                                <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-white">13+</p>
+                                <p className="text-[10px] lg:text-sm text-gray-400 uppercase tracking-wider font-medium">Anni Esperienza</p>
+                            </div>
+                            <div className="text-center lg:text-left flex-1 min-w-[80px] sm:min-w-0 sm:flex-none">
+                                <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-white">100%</p>
+                                <p className="text-[10px] lg:text-sm text-gray-400 uppercase tracking-wider font-medium">Impegno Richiesto</p>
+                            </div>
+                        </motion.div>
+                    </div>
+
+                    {/* Floating Card - Adjusted placement */}
+                    <div className="hidden lg:block lg:col-span-5 relative h-full min-h-[400px]">
+                        <motion.div
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 1 }}
+                            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 bg-[#221910]/60 backdrop-blur-md border border-white/10 p-6 rounded-2xl shadow-2xl z-20"
+                        >
+                            <div className="flex items-center gap-4 mb-4">
+                                <div className="w-12 h-12 rounded-full border-2 border-primary overflow-hidden relative shadow-lg shadow-primary/20">
+                                    <Image
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuATTabJMBWQ-Q1a6YaK9x7PJPhPRbqY1WTkEy7klv6L5Y6LcNM2uiUYPq3ByY57HWxTQe_GtnHJ_nXX1oUrBswVfmq7y0hR8uy-SjARot29KZkNYE9nT96yMKan4vqX1qF89HewnUN3NUNIXDTgEhTHbor56t8BfWPkPIAjXyJlQOofjCEBdTa_wFMNhlgzfsmieDuHWlh_wIGITofF3_pZrtOZekfaUfvmMOOofDiAy280GNfa00K46KCdxOTZHEyn1tZwu8FnEKAi"
+                                        alt="Marco Rossi"
+                                        fill
+                                        className="object-cover"
+                                    />
+                                </div>
+                                <div>
+                                    <h4 className="text-white font-bold text-sm">Marco Rossi</h4>
+                                    <div className="flex text-primary text-xs">
+                                        {[1, 2, 3, 4, 5].map((s) => <Star key={s} className="w-3.5 h-3.5 fill-current" />)}
+                                    </div>
+                                </div>
+                            </div>
+                            <p className="text-gray-300 text-sm italic leading-relaxed">
+                                &quot;Ho cambiato completamente approccio all&apos;allenamento. In soli 3 mesi ho raggiunto obiettivi che inseguivo da anni.&quot;
+                            </p>
+                            <div className="mt-4 flex items-center justify-between text-xs text-gray-400 border-t border-white/10 pt-3">
+                                <span className="flex items-center gap-1"><CheckCircle2 className="w-3 h-3 text-primary" /> Programma Ipertrofia</span>
+                                <span className="text-primary font-bold bg-primary/10 px-2 py-1 rounded">-8kg grasso</span>
+                            </div>
+                        </motion.div>
+
+                        {/* Abstract decorative elements */}
+                        <div className="absolute top-10 right-10 w-24 h-24 bg-primary/20 rounded-full blur-3xl" />
+                        <div className="absolute bottom-10 left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl" />
+                    </div>
+                </div>
+            </div >
+
+            {/* Scroll Indicator */}
+            < div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:flex flex-col items-center gap-2 opacity-60 hover:opacity-100 transition-opacity cursor-pointer" >
+                <span className="text-[10px] uppercase tracking-widest text-gray-400">Scorri</span>
+                <ChevronDown className="text-primary w-5 h-5" />
+            </div >
+        </div >
+    );
+}

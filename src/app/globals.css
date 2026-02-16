@@ -1,0 +1,82 @@
+@import "tailwindcss";
+@import "shadcn/tailwind.css";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius: var(--radius);
+  --font-display: var(--font-lexend), sans-serif;
+}
+
+:root {
+  /* User Defined Colors */
+  --primary-color: #f48c25;
+  --bg-dark: #221910;
+  --bg-footer: #1a140e;
+  --bg-light: #f8f7f5;
+
+  --background: var(--bg-footer);
+  --foreground: #ffffff;
+
+  --card: #2a2018;
+  /* Slightly lighter than bg */
+  --card-foreground: #ffffff;
+
+  --popover: #2a2018;
+  --popover-foreground: #ffffff;
+
+  --primary: var(--primary-color);
+  --primary-foreground: #221910;
+
+  --secondary: #ffffff0d;
+  /* White 5% transparent */
+  --secondary-foreground: #ffffff;
+
+  --muted: #ffffff0d;
+  --muted-foreground: #d1d5db;
+  /* Gray 300 */
+
+  --accent: #2a2018;
+  --accent-foreground: #ffffff;
+
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+
+  --border: #ffffff1a;
+  /* White 10% */
+  --input: #ffffff1a;
+  --ring: var(--primary-color);
+
+  --radius: 1rem;
+}
+
+.dark {
+  /* Inherit root */
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
