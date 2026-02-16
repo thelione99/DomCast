@@ -23,6 +23,7 @@
   --color-ring: var(--ring);
   --radius: var(--radius);
   --font-display: var(--font-lexend), sans-serif;
+  --font-anton: var(--font-anton), sans-serif;
 }
 
 :root {

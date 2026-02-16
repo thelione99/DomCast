@@ -28,9 +28,9 @@ export function Transformations() {
         <section className="py-24 bg-[#221910] text-white overflow-hidden relative border-t border-white/5">
             <div className="container px-4 md:px-6 max-w-screen-xl relative z-10 mx-auto">
                 <div className="text-center mb-12">
-                    <span className="text-primary font-bold tracking-wider uppercase text-sm">Storie di Successo</span>
-                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mt-2">
-                        Risultati <span className="text-primary font-extrabold text-4xl md:text-6xl">Reali</span>
+                    <span className="text-primary tracking-wider uppercase text-sm font-[family-name:var(--font-anton)]">Storie di Successo</span>
+                    <h2 className="text-3xl md:text-5xl tracking-tight text-white mt-2 font-[family-name:var(--font-anton)] uppercase">
+                        Risultati <span className="text-primary text-4xl md:text-6xl">Reali</span>
                     </h2>
                 </div>
 

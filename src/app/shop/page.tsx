@@ -13,13 +13,6 @@ export default function ShopPage() {
             image: "placeholder-1",
         },
         {
-            id: 2,
-            name: "Masterclass Ipertrofia",
-            price: 69.00,
-            category: "Massa Muscolare",
-            image: "placeholder-2",
-        },
-        {
             id: 3,
             name: "Costruzione Glutei",
             price: 59.00,
@@ -38,8 +31,8 @@ export default function ShopPage() {
     return (
         <div className="container py-20 px-4 md:px-6 max-w-screen-xl">
             <div className="text-center mb-16">
-                <h1 className="text-4xl md:text-6xl font-black tracking-tighter uppercase mb-4 text-white">
-                    Il Mio <span className="text-primary italic">Shop</span>
+                <h1 className="text-4xl md:text-6xl tracking-tighter uppercase mb-4 text-white font-[family-name:var(--font-anton)]">
+                    Il Mio <span className="text-primary">Shop</span>
                 </h1>
                 <p className="text-muted-foreground max-w-xl mx-auto text-lg">
                     Programmi comprovati per ottenere risultati, scaricabili istantaneamente.
@@ -61,7 +54,7 @@ export default function ShopPage() {
                             <CardTitle className="text-lg font-bold truncate">{product.name}</CardTitle>
                         </CardHeader>
                         <CardContent className="flex-1">
-                            <p className="text-2xl font-bold text-white">€{product.price.toFixed(2)}</p>
+                            <p className="text-2xl tracking-tight text-white font-[family-name:var(--font-anton)]">€{product.price.toFixed(2)}</p>
                         </CardContent>
                         <CardFooter>
                             <Button className="w-full font-bold" asChild>

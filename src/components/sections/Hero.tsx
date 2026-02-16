@@ -108,15 +108,15 @@ export function Hero() {
                             className="pt-6 lg:pt-8 border-t border-white/10 mt-6 lg:mt-8 flex flex-row flex-wrap justify-between sm:justify-start gap-4 md:gap-12"
                         >
                             <div className="text-center lg:text-left flex-1 min-w-[80px] sm:min-w-0 sm:flex-none">
-                                <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-white">500+</p>
+                                <p className="text-xl sm:text-2xl lg:text-3xl tracking-tight text-white font-[family-name:var(--font-anton)]">500+</p>
                                 <p className="text-[10px] lg:text-sm text-gray-400 uppercase tracking-wider font-medium">Clienti Soddisfatti</p>
                             </div>
                             <div className="text-center lg:text-left flex-1 min-w-[80px] sm:min-w-0 sm:flex-none">
-                                <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-white">13+</p>
+                                <p className="text-xl sm:text-2xl lg:text-3xl tracking-tight text-white font-[family-name:var(--font-anton)]">13+</p>
                                 <p className="text-[10px] lg:text-sm text-gray-400 uppercase tracking-wider font-medium">Anni Esperienza</p>
                             </div>
                             <div className="text-center lg:text-left flex-1 min-w-[80px] sm:min-w-0 sm:flex-none">
-                                <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-white">100%</p>
+                                <p className="text-xl sm:text-2xl lg:text-3xl tracking-tight text-white font-[family-name:var(--font-anton)]">100%</p>
                                 <p className="text-[10px] lg:text-sm text-gray-400 uppercase tracking-wider font-medium">Impegno Richiesto</p>
                             </div>
                         </motion.div>

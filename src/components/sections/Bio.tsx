@@ -23,9 +23,9 @@ export function Bio() {
                         className="flex flex-col justify-center space-y-8 lg:order-1 order-2"
                     >
                         <div className="space-y-2">
-                            <span className="text-primary font-bold tracking-wider uppercase text-sm">Il tuo Coach</span>
-                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
-                                Domenico <br /> <span className="text-primary font-extrabold text-5xl md:text-6xl lg:text-7xl">Castaldo</span>
+                            <span className="text-primary tracking-wider uppercase text-sm font-[family-name:var(--font-anton)]">Il tuo Coach</span>
+                            <h2 className="text-4xl md:text-5xl lg:text-6xl tracking-tight text-white leading-tight font-[family-name:var(--font-anton)] uppercase">
+                                Domenico <br /> <span className="text-primary text-5xl md:text-6xl lg:text-7xl">Castaldo</span>
                             </h2>
                         </div>
 
@@ -43,11 +43,11 @@ export function Bio() {
 
                         <div className="grid grid-cols-2 gap-6 pt-4 border-t border-white/10">
                             <div className="space-y-1">
-                                <h4 className="text-4xl font-bold text-white">13+</h4>
+                                <h4 className="text-4xl tracking-tight text-white font-[family-name:var(--font-anton)]">13+</h4>
                                 <p className="text-xs text-primary uppercase tracking-wider font-medium">Anni di Esperienza</p>
                             </div>
                             <div className="space-y-1">
-                                <h4 className="text-4xl font-bold text-white">500+</h4>
+                                <h4 className="text-4xl tracking-tight text-white font-[family-name:var(--font-anton)]">500+</h4>
                                 <p className="text-xs text-primary uppercase tracking-wider font-medium">Vite Trasformate</p>
                             </div>
                         </div>

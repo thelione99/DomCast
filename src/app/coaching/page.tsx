@@ -12,9 +12,9 @@ export default function CoachingPage() {
         <div className="min-h-screen bg-[#221910] text-white pt-24 pb-20">
             <div className="container px-4 md:px-6 max-w-screen-xl mx-auto">
                 <div className="text-center mb-16">
-                    <span className="text-primary font-bold tracking-wider uppercase text-sm">Candidatura ESCLUSIVA</span>
-                    <h1 className="text-4xl md:text-6xl font-black tracking-tight text-white mb-4 mt-2">
-                        Elite <span className="text-primary font-extrabold text-5xl md:text-7xl">Coaching</span>
+                    <span className="text-primary tracking-wider uppercase text-sm font-[family-name:var(--font-anton)]">Candidatura ESCLUSIVA</span>
+                    <h1 className="text-4xl md:text-6xl tracking-tight text-white mb-4 mt-2 font-[family-name:var(--font-anton)] uppercase">
+                        Elite <span className="text-primary text-5xl md:text-7xl">Coaching</span>
                     </h1>
                     <p className="text-gray-400 max-w-xl mx-auto text-lg leading-relaxed font-light">
                         Strategie personalizzate costruite attorno al tuo stile di vita e ai tuoi obiettivi unici.

@@ -10,8 +10,8 @@ export default function ContactPage() {
     return (
         <div className="container py-20 px-4 md:px-6 max-w-screen-md">
             <div className="text-center mb-12">
-                <h1 className="text-4xl md:text-5xl font-black tracking-tighter uppercase mb-4 text-white">
-                    Contattami <span className="text-primary italic">Ora</span>
+                <h1 className="text-4xl md:text-5xl tracking-tighter uppercase mb-4 text-white font-[family-name:var(--font-anton)]">
+                    Contattami <span className="text-primary">Ora</span>
                 </h1>
                 <p className="text-muted-foreground text-lg">
                     Hai domande? Invia un messaggio e ti risponderò entro 24 ore.

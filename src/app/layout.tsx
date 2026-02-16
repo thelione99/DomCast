@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Lexend, Dancing_Script, Caveat } from "next/font/google";
+import { Lexend, Dancing_Script, Caveat, Anton } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -20,6 +20,12 @@ const caveat = Caveat({
   subsets: ["latin"],
   variable: "--font-caveat",
   weight: ["400", "500", "600", "700"]
+});
+
+const anton = Anton({
+  subsets: ["latin"],
+  variable: "--font-anton",
+  weight: "400",
 });
 
 export const viewport: Viewport = {
@@ -101,7 +107,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${lexend.variable} ${dancingScript.variable} ${caveat.variable} font-display antialiased flex flex-col min-h-screen bg-background text-foreground`}>
+      <body className={`${lexend.variable} ${dancingScript.variable} ${caveat.variable} ${anton.variable} font-display antialiased flex flex-col min-h-screen bg-background text-foreground`}>
         <Navbar isFixed={true} />
         <main className="flex-1">{children}</main>
         <Footer />
