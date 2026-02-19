@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Lexend, Dancing_Script, Caveat, Anton } from "next/font/google";
+import { Lexend, Caveat, Anton } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -10,11 +11,7 @@ const lexend = Lexend({
   weight: ["300", "400", "500", "600", "700", "800"]
 });
 
-const dancingScript = Dancing_Script({
-  subsets: ["latin"],
-  variable: "--font-cursive",
-  weight: ["400", "700"]
-});
+
 
 const caveat = Caveat({
   subsets: ["latin"],
@@ -110,7 +107,19 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${lexend.variable} ${dancingScript.variable} ${caveat.variable} ${anton.variable} font-display antialiased flex flex-col min-h-screen bg-background text-foreground`}>
+      <body className={`${lexend.variable} ${caveat.variable} ${anton.variable} font-display antialiased flex flex-col min-h-screen bg-background text-foreground`}>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-2B12KM11FY"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-2B12KM11FY');
+          `}
+        </Script>
         <Navbar isFixed={true} />
         <main className="flex-1">{children}</main>
         <Footer />
