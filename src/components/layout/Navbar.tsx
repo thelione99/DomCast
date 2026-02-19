@@ -481,7 +481,7 @@ export function Navbar({
                         <div className="relative w-32 h-10 transition-transform hover:scale-105">
                             <Image
                                 src={logoUrl || "/Logo_Domcast-3.png"}
-                                alt="Logo"
+                                alt="Domcast — Personal Trainer Domenico Castaldo"
                                 fill
                                 sizes="128px"
                                 className="object-contain object-left"
@@ -537,37 +537,39 @@ export function Navbar({
                     aria-hidden={!open}
                 >
                     <div className="sm-panel-inner flex-1 flex flex-col gap-8">
-                        <ul
-                            className="sm-panel-list list-none m-0 p-0 flex flex-col gap-4"
-                            role="list"
-                            data-numbering={displayItemNumbering || undefined}
-                        >
-                            {items && items.length ? (
-                                items.map((it, idx) => (
-                                    <li className="sm-panel-itemWrap relative overflow-hidden leading-none" key={it.label + idx}>
-                                        <Link
-                                            href={it.link}
-                                            onClick={closeMenu}
-                                            className="sm-panel-item relative text-[#221910] font-black text-[3rem] sm:text-[4rem] cursor-pointer leading-none tracking-tighter uppercase transition-[background,color] duration-150 ease-linear inline-block no-underline pr-[1.4em] hover:text-[#f48c25]"
-                                            aria-label={it.ariaLabel}
-                                            data-index={idx + 1}
-                                        >
+                        <nav aria-label="Menu principale">
+                            <ul
+                                className="sm-panel-list list-none m-0 p-0 flex flex-col gap-4"
+                                role="list"
+                                data-numbering={displayItemNumbering || undefined}
+                            >
+                                {items && items.length ? (
+                                    items.map((it, idx) => (
+                                        <li className="sm-panel-itemWrap relative overflow-hidden leading-none" key={it.label + idx}>
+                                            <Link
+                                                href={it.link}
+                                                onClick={closeMenu}
+                                                className="sm-panel-item relative text-[#221910] font-black text-[3rem] sm:text-[4rem] cursor-pointer leading-none tracking-tighter uppercase transition-[background,color] duration-150 ease-linear inline-block no-underline pr-[1.4em] hover:text-[#f48c25]"
+                                                aria-label={it.ariaLabel}
+                                                data-index={idx + 1}
+                                            >
+                                                <span className="sm-panel-itemLabel inline-block [transform-origin:50%_100%] will-change-transform">
+                                                    {it.label}
+                                                </span>
+                                            </Link>
+                                        </li>
+                                    ))
+                                ) : (
+                                    <li className="sm-panel-itemWrap relative overflow-hidden leading-none" aria-hidden="true">
+                                        <span className="sm-panel-item relative text-[#221910] font-semibold text-[4rem] cursor-pointer leading-none tracking-[-2px] uppercase transition-[background,color] duration-150 ease-linear inline-block no-underline pr-[1.4em]">
                                             <span className="sm-panel-itemLabel inline-block [transform-origin:50%_100%] will-change-transform">
-                                                {it.label}
+                                                No items
                                             </span>
-                                        </Link>
-                                    </li>
-                                ))
-                            ) : (
-                                <li className="sm-panel-itemWrap relative overflow-hidden leading-none" aria-hidden="true">
-                                    <span className="sm-panel-item relative text-[#221910] font-semibold text-[4rem] cursor-pointer leading-none tracking-[-2px] uppercase transition-[background,color] duration-150 ease-linear inline-block no-underline pr-[1.4em]">
-                                        <span className="sm-panel-itemLabel inline-block [transform-origin:50%_100%] will-change-transform">
-                                            No items
                                         </span>
-                                    </span>
-                                </li>
-                            )}
-                        </ul>
+                                    </li>
+                                )}
+                            </ul>
+                        </nav>
 
                         {displaySocials && socialItems && socialItems.length > 0 && (
                             <div className="sm-socials mt-auto pt-12 flex flex-col gap-4 border-t border-gray-100" aria-label="Social links">

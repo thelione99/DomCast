@@ -11,8 +11,9 @@ export function Footer() {
                         <div className="relative w-40 h-10 transition-transform group-hover:scale-105">
                             <Image
                                 src="/Logo_Domcast-3.png"
-                                alt="Domcast Logo"
+                                alt="Domcast Training — Torna alla homepage"
                                 fill
+                                sizes="160px"
                                 className="object-contain object-left"
                             />
                         </div>
@@ -22,28 +23,32 @@ export function Footer() {
                     </p>
                 </div>
 
-                <div className="flex gap-6">
-                    <Link href="https://instagram.com" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-primary transition-colors p-2 hover:bg-white/5 rounded-full">
-                        <Instagram className="h-6 w-6" />
-                        <span className="sr-only">Instagram</span>
-                    </Link>
-                    <Link href="mailto:contact@domcast.com" className="text-gray-400 hover:text-primary transition-colors p-2 hover:bg-white/5 rounded-full">
-                        <Mail className="h-6 w-6" />
-                        <span className="sr-only">Email</span>
-                    </Link>
-                    <Link href="#" className="text-gray-400 hover:text-primary transition-colors p-2 hover:bg-white/5 rounded-full">
-                        <MapPin className="h-6 w-6" />
-                        <span className="sr-only">Location</span>
-                    </Link>
-                </div>
+                <nav aria-label="Social media">
+                    <div className="flex gap-6">
+                        <Link href="https://instagram.com" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-primary transition-colors p-2 hover:bg-white/5 rounded-full">
+                            <Instagram className="h-6 w-6" />
+                            <span className="sr-only">Instagram</span>
+                        </Link>
+                        <Link href="mailto:info@domcast.it" className="text-gray-400 hover:text-primary transition-colors p-2 hover:bg-white/5 rounded-full">
+                            <Mail className="h-6 w-6" />
+                            <span className="sr-only">Email</span>
+                        </Link>
+                        <Link href="#" className="text-gray-400 hover:text-primary transition-colors p-2 hover:bg-white/5 rounded-full">
+                            <MapPin className="h-6 w-6" />
+                            <span className="sr-only">Posizione</span>
+                        </Link>
+                    </div>
+                </nav>
             </div>
 
             <div className="container mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 max-w-screen-xl px-4 mx-auto gap-4">
                 <p>&copy; {new Date().getFullYear()} Domcast Training. Tutti i diritti riservati.</p>
-                <div className="flex gap-6">
-                    <Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
-                    <Link href="/terms" className="hover:text-primary transition-colors">Termini di Servizio</Link>
-                </div>
+                <nav aria-label="Link legali">
+                    <div className="flex gap-6">
+                        <Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
+                        <Link href="/terms" className="hover:text-primary transition-colors">Termini di Servizio</Link>
+                    </div>
+                </nav>
             </div>
         </footer>
     );

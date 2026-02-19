@@ -8,7 +8,10 @@ import { motion } from "framer-motion";
 
 export function Hero() {
     return (
-        <div className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden group">
+        <section aria-label="Hero — Domcast Personal Training" className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden group">
+            {/* SEO: Hidden h1 for search engines — visible content uses logo + h2 */}
+            <h1 className="sr-only">Domcast — Elite Personal Training e Coaching Online con Domenico Castaldo</h1>
+
             {/* Background Images */}
             <div className="absolute inset-0 w-full h-full">
                 {/* Placeholder for the gym image */}
@@ -17,7 +20,7 @@ export function Hero() {
                 {/* Default Image */}
                 <Image
                     src="/sfondo.jpeg"
-                    alt="Man lifting heavy weights in dark gym"
+                    alt="Atleta che si allena con pesi in palestra"
                     fill
                     sizes="100vw"
                     quality={60}
@@ -51,7 +54,7 @@ export function Hero() {
                             <div className="relative w-full max-w-[320px] sm:max-w-[500px] lg:max-w-[700px] aspect-[3/1] lg:aspect-[4/1]">
                                 <Image
                                     src="/Logo_Domcast-2.png"
-                                    alt="Domcast Logo"
+                                    alt="Domcast Training — Personal Trainer Domenico Castaldo"
                                     fill
                                     sizes="(max-width: 640px) 320px, (max-width: 1024px) 500px, 700px"
                                     className="object-contain object-center lg:object-left"
@@ -166,6 +169,6 @@ export function Hero() {
                 <span className="text-[10px] uppercase tracking-widest text-gray-400">Scorri</span>
                 <ChevronDown className="text-primary w-5 h-5" />
             </div >
-        </div >
+        </section>
     );
 }

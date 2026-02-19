@@ -86,16 +86,48 @@ export default function RootLayout({
 }>) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Person",
+    "@type": ["Person", "ProfessionalService"],
     "name": "Domenico Castaldo",
     "alternateName": "Domcast",
     "url": "https://domcast.it",
     "image": "https://domcast.it/Dom.jpeg",
-    "jobTitle": "Personal Trainer",
-    "description": "Specialista in forza, condizionamento e nutrizione sportiva con oltre 13 anni di esperienza.",
+    "jobTitle": "Personal Trainer Certificato ISSA",
+    "description": "Personal Trainer con oltre 13 anni di esperienza, specialista certificato in forza, condizionamento e nutrizione sportiva. Coaching online e schede personalizzate per ipertrofia e dimagrimento.",
+    "knowsAbout": [
+      "Personal Training",
+      "Ipertrofia Muscolare",
+      "Dimagrimento",
+      "Nutrizione Sportiva",
+      "Forza e Condizionamento",
+      "Coaching Online"
+    ],
+    "areaServed": {
+      "@type": "Country",
+      "name": "Italia"
+    },
+    "priceRange": "€€",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Servizi Domcast Training",
+      "itemListElement": [
+        {
+          "@type": "OfferCatalog",
+          "name": "Schede Allenamento",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Scheda Allenamento Personalizzata" } }
+          ]
+        },
+        {
+          "@type": "OfferCatalog",
+          "name": "Online Coaching",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Online Coaching Elite" } }
+          ]
+        }
+      ]
+    },
     "sameAs": [
-      "https://instagram.com", // Add actual links
-      "https://facebook.com"
+      "https://www.instagram.com/domcast.coach/"
     ]
   };
 
