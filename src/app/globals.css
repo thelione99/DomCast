@@ -68,9 +68,7 @@
   --radius: 1rem;
 }
 
-.dark {
-  /* Inherit root */
-}
+
 
 @layer base {
   * {
