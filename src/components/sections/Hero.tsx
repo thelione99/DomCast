@@ -20,9 +20,10 @@ export function Hero() {
                     alt="Man lifting heavy weights in dark gym"
                     fill
                     sizes="100vw"
-                    quality={75}
+                    quality={60}
                     className="object-cover object-center opacity-60"
                     priority
+                    fetchPriority="high"
                 />
 
                 {/* Gradient Overlay */}
