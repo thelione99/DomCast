@@ -19,6 +19,8 @@ export function Hero() {
                     src="/sfondo.jpeg"
                     alt="Man lifting heavy weights in dark gym"
                     fill
+                    sizes="100vw"
+                    quality={75}
                     className="object-cover object-center opacity-60"
                     priority
                 />
@@ -50,6 +52,7 @@ export function Hero() {
                                     src="/Logo_Domcast-2.png"
                                     alt="Domcast Logo"
                                     fill
+                                    sizes="(max-width: 640px) 320px, (max-width: 1024px) 500px, 700px"
                                     className="object-contain object-center lg:object-left"
                                     priority
                                 />
@@ -131,13 +134,8 @@ export function Hero() {
                             className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 bg-[#221910]/60 backdrop-blur-md border border-white/10 p-6 rounded-2xl shadow-2xl z-20"
                         >
                             <div className="flex items-center gap-4 mb-4">
-                                <div className="w-12 h-12 rounded-full border-2 border-primary overflow-hidden relative shadow-lg shadow-primary/20">
-                                    <Image
-                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuATTabJMBWQ-Q1a6YaK9x7PJPhPRbqY1WTkEy7klv6L5Y6LcNM2uiUYPq3ByY57HWxTQe_GtnHJ_nXX1oUrBswVfmq7y0hR8uy-SjARot29KZkNYE9nT96yMKan4vqX1qF89HewnUN3NUNIXDTgEhTHbor56t8BfWPkPIAjXyJlQOofjCEBdTa_wFMNhlgzfsmieDuHWlh_wIGITofF3_pZrtOZekfaUfvmMOOofDiAy280GNfa00K46KCdxOTZHEyn1tZwu8FnEKAi"
-                                        alt="Marco Rossi"
-                                        fill
-                                        className="object-cover"
-                                    />
+                                <div className="w-12 h-12 rounded-full border-2 border-primary overflow-hidden relative shadow-lg shadow-primary/20 bg-primary/20 flex items-center justify-center">
+                                    <span className="text-primary font-bold text-sm">MR</span>
                                 </div>
                                 <div>
                                     <h4 className="text-white font-bold text-sm">Marco Rossi</h4>

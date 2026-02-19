@@ -483,8 +483,8 @@ export function Navbar({
                                 src={logoUrl || "/Logo_Domcast-3.png"}
                                 alt="Logo"
                                 fill
+                                sizes="128px"
                                 className="object-contain object-left"
-                                priority
                             />
                         </div>
                     </Link>
