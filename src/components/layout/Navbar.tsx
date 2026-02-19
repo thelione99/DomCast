@@ -460,7 +460,7 @@ export function Navbar({
                         return arr.map((c, i) => (
                             <div
                                 key={i}
-                                className="sm-prelayer absolute top-0 right-0 h-full w-full translate-x-0"
+                                className={`sm-prelayer absolute top-0 right-0 h-full w-full ${position === "left" ? "-translate-x-full" : "translate-x-full"}`}
                                 style={{ background: c }}
                             />
                         ));
@@ -533,7 +533,7 @@ export function Navbar({
                 <aside
                     id="staggered-menu-panel"
                     ref={panelRef}
-                    className="staggered-menu-panel fixed top-0 right-0 h-screen w-full sm:w-[480px] bg-white flex flex-col p-[8em_2em_4em_3em] overflow-y-auto z-40 backdrop-blur-[12px] shadow-2xl pointer-events-auto"
+                    className={`staggered-menu-panel fixed top-0 right-0 h-screen w-full sm:w-[480px] bg-white flex flex-col p-[8em_2em_4em_3em] overflow-y-auto z-40 backdrop-blur-[12px] shadow-2xl pointer-events-auto ${position === "left" ? "-translate-x-full" : "translate-x-full"}`}
                     aria-hidden={!open}
                 >
                     <div className="sm-panel-inner flex-1 flex flex-col gap-8">

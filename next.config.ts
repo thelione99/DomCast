@@ -1,6 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  compress: true,
+  experimental: {
+    optimizePackageImports: [
+      "lucide-react",
+      "framer-motion",
+      "radix-ui",
+      "@radix-ui/react-slot",
+    ],
+  },
   images: {
     remotePatterns: [
       {
