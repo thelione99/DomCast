@@ -1,10 +1,7 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight, PlayCircle, Star, ChevronDown, CheckCircle2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 
 export function Hero() {
     return (
@@ -14,10 +11,9 @@ export function Hero() {
 
             {/* Background Images */}
             <div className="absolute inset-0 w-full h-full">
-                {/* Placeholder for the gym image */}
+                {/* Solid color placeholder — visible instantly in SSR */}
                 <div className="absolute inset-0 bg-[#221910]" />
 
-                {/* Default Image */}
                 <Image
                     src="/sfondo.webp"
                     alt="Atleta che si allena con pesi in palestra"
@@ -40,15 +36,10 @@ export function Hero() {
                     {/* Text Content */}
                     <div className="lg:col-span-7 space-y-4 lg:space-y-6 text-center lg:text-left">
 
-                        {/* Trust Badge */}
-
-
-                        {/* Logo & Headline */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.4 }}
-                            className="flex flex-col items-center lg:items-start space-y-2"
+                        {/* Logo & Headline — CSS animation, no JS dependency */}
+                        <div
+                            className="flex flex-col items-center lg:items-start space-y-2 animate-hero-fade-up"
+                            style={{ animationDelay: "0.1s" }}
                         >
                             <div className="relative w-full max-w-[320px] sm:max-w-[500px] lg:max-w-[700px] aspect-[3/1] lg:aspect-[4/1]">
                                 <Image
@@ -64,25 +55,21 @@ export function Hero() {
 
                             {/* Cursive Subtitle */}
                             <h2 className="text-5xl sm:text-6xl lg:text-8xl text-center lg:text-left text-primary font-bold leading-tight font-[family-name:var(--font-caveat)] tracking-normal">
-                                "Supera i tuoi limiti"
+                                &quot;Supera i tuoi limiti&quot;
                             </h2>
-                        </motion.div>
+                        </div>
 
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.5 }}
-                            className="text-base md:text-xl text-center lg:text-left text-gray-300 max-w-xl mx-auto lg:mx-0 font-light leading-relaxed px-4 lg:px-0 pt-2"
+                        <p
+                            className="text-base md:text-xl text-center lg:text-left text-gray-300 max-w-xl mx-auto lg:mx-0 font-light leading-relaxed px-4 lg:px-0 pt-2 animate-hero-fade-up"
+                            style={{ animationDelay: "0.2s" }}
                         >
                             Programmi di allenamento scientifici e personalizzati per scolpire il tuo fisico e potenziare la tua mente.
-                        </motion.p>
+                        </p>
 
                         {/* CTA Buttons */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.6 }}
-                            className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 lg:gap-4 pt-4 lg:pt-6 px-4 sm:px-0"
+                        <div
+                            className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 lg:gap-4 pt-4 lg:pt-6 px-4 sm:px-0 animate-hero-fade-up"
+                            style={{ animationDelay: "0.3s" }}
                         >
                             <Button
                                 size="lg"
@@ -105,14 +92,12 @@ export function Hero() {
                                     Guarda come lavoro
                                 </Link>
                             </Button>
-                        </motion.div>
+                        </div>
 
                         {/* Social Proof / Stats */}
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.8 }}
-                            className="pt-6 lg:pt-8 border-t border-white/10 mt-6 lg:mt-8 flex flex-row flex-wrap justify-between sm:justify-start gap-4 md:gap-12"
+                        <div
+                            className="pt-6 lg:pt-8 border-t border-white/10 mt-6 lg:mt-8 flex flex-row flex-wrap justify-between sm:justify-start gap-4 md:gap-12 animate-hero-fade-in"
+                            style={{ animationDelay: "0.5s" }}
                         >
                             <div className="text-center lg:text-left flex-1 min-w-[80px] sm:min-w-0 sm:flex-none">
                                 <p className="text-xl sm:text-2xl lg:text-3xl tracking-tight text-white font-[family-name:var(--font-anton)]">500+</p>
@@ -126,16 +111,14 @@ export function Hero() {
                                 <p className="text-xl sm:text-2xl lg:text-3xl tracking-tight text-white font-[family-name:var(--font-anton)]">100%</p>
                                 <p className="text-[10px] lg:text-sm text-gray-400 uppercase tracking-wider font-medium">Impegno Richiesto</p>
                             </div>
-                        </motion.div>
+                        </div>
                     </div>
 
                     {/* Floating Card - Adjusted placement */}
                     <div className="hidden lg:block lg:col-span-5 relative h-full min-h-[400px]">
-                        <motion.div
-                            initial={{ opacity: 0, x: 20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 1 }}
-                            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 bg-[#221910]/60 backdrop-blur-md border border-white/10 p-6 rounded-2xl shadow-2xl z-20"
+                        <div
+                            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 bg-[#221910]/60 backdrop-blur-md border border-white/10 p-6 rounded-2xl shadow-2xl z-20 animate-hero-fade-in"
+                            style={{ animationDelay: "0.6s" }}
                         >
                             <div className="flex items-center gap-4 mb-4">
                                 <div className="w-12 h-12 rounded-full border-2 border-primary overflow-hidden relative shadow-lg shadow-primary/20 bg-primary/20 flex items-center justify-center">
@@ -155,7 +138,7 @@ export function Hero() {
                                 <span className="flex items-center gap-1"><CheckCircle2 className="w-3 h-3 text-primary" /> Programma Ipertrofia</span>
                                 <span className="text-primary font-bold bg-primary/10 px-2 py-1 rounded">-8kg grasso</span>
                             </div>
-                        </motion.div>
+                        </div>
 
                         {/* Abstract decorative elements */}
                         <div className="absolute top-10 right-10 w-24 h-24 bg-primary/20 rounded-full blur-3xl" />
