@@ -23,10 +23,9 @@ export function Hero() {
                     alt="Atleta che si allena con pesi in palestra"
                     fill
                     sizes="100vw"
-                    quality={60}
+                    quality={50}
                     className="object-cover object-center opacity-60"
                     priority
-                    fetchPriority="high"
                 />
 
                 {/* Gradient Overlay */}
@@ -59,6 +58,7 @@ export function Hero() {
                                     sizes="(max-width: 640px) 320px, (max-width: 1024px) 500px, 700px"
                                     className="object-contain object-center lg:object-left"
                                     priority
+                                    fetchPriority="high"
                                 />
                             </div>
 
