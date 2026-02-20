@@ -146,7 +146,7 @@ export function Navbar({
             preLayerElsRef.current = preLayers;
 
             const offscreen = position === "left" ? -100 : 100;
-            gsap.set([panel, ...preLayers], { xPercent: offscreen });
+            gsap.set([panel, ...preLayers], { xPercent: offscreen, visibility: "visible" });
 
             gsap.set(plusH, { transformOrigin: "50% 50%", rotate: 0 });
             gsap.set(plusV, { transformOrigin: "50% 50%", rotate: 90 });
@@ -447,7 +447,7 @@ export function Navbar({
 
                 <div
                     ref={preLayersRef}
-                    className="sm-prelayers fixed top-0 right-0 bottom-0 pointer-events-none z-[5] w-screen h-screen overflow-hidden"
+                    className="sm-prelayers invisible fixed top-0 right-0 bottom-0 pointer-events-none z-[5] w-screen h-screen overflow-hidden"
                     aria-hidden="true"
                 >
                     {(() => {
@@ -460,7 +460,7 @@ export function Navbar({
                         return arr.map((c, i) => (
                             <div
                                 key={i}
-                                className="sm-prelayer absolute top-0 right-0 h-full w-full"
+                                className="sm-prelayer invisible absolute top-0 right-0 h-full w-full"
                                 style={{ background: c }}
                             />
                         ));
@@ -533,7 +533,7 @@ export function Navbar({
                 <aside
                     id="staggered-menu-panel"
                     ref={panelRef}
-                    className="staggered-menu-panel fixed top-0 right-0 h-screen w-full sm:w-[480px] bg-white flex flex-col p-[8em_2em_4em_3em] overflow-y-auto z-40 backdrop-blur-[12px] shadow-2xl pointer-events-auto"
+                    className="staggered-menu-panel invisible fixed top-0 right-0 h-screen w-full sm:w-[480px] bg-white flex flex-col p-[8em_2em_4em_3em] overflow-y-auto z-40 backdrop-blur-[12px] shadow-2xl pointer-events-auto"
                     aria-hidden={!open}
                 >
                     <div className="sm-panel-inner flex-1 flex flex-col gap-8">
