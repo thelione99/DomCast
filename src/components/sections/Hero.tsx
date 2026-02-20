@@ -19,11 +19,11 @@ export function Hero() {
 
                 {/* Default Image */}
                 <Image
-                    src="/sfondo.jpeg"
+                    src="/sfondo.webp"
                     alt="Atleta che si allena con pesi in palestra"
                     fill
                     sizes="100vw"
-                    quality={50}
+                    quality={75}
                     className="object-cover object-center opacity-60"
                     priority
                 />
