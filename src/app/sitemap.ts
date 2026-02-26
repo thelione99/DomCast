@@ -35,6 +35,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: 'yearly',
             priority: 0.5,
         },
+        {
+            url: `${baseUrl}/coaching/questionario`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.6,
+        },
         ...products.map((product) => ({
             url: `${baseUrl}/shop/${product.id}`,
             lastModified: new Date(),

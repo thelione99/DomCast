@@ -37,10 +37,9 @@ export function Hero() {
                     {/* Text Content */}
                     <div className="lg:col-span-7 space-y-4 lg:space-y-6 text-center lg:text-left">
 
-                        {/* Logo & Headline — CSS animation, no JS dependency */}
+                        {/* Logo & Headline — Immediate render for LCP optimization */}
                         <div
-                            className="flex flex-col items-center lg:items-start space-y-2 animate-hero-fade-up"
-                            style={{ animationDelay: "0.1s" }}
+                            className="flex flex-col items-center lg:items-start space-y-2"
                         >
                             <div className="relative w-full max-w-[320px] sm:max-w-[500px] lg:max-w-[700px] aspect-[3/1] lg:aspect-[4/1]">
                                 <Image

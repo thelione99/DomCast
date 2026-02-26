@@ -33,6 +33,9 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://domcast.it'), // Replace with actual domain when live
+  icons: {
+    icon: '/favicon.ico',
+  },
   title: {
     default: "Domcast | Elite Personal Training & Online Coaching",
     template: "%s | Domcast Training"
@@ -141,7 +144,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="it" className="dark">
+    <html lang="it" className="dark" style={{ backgroundColor: '#1a140e' }}>
       <head>
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
@@ -150,7 +153,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${lexend.variable} ${caveat.variable} ${anton.variable} font-display antialiased flex flex-col min-h-screen bg-background text-foreground`}>
+      <body className={`${lexend.variable} ${caveat.variable} ${anton.variable} font-display antialiased flex flex-col min-h-screen bg-background text-foreground`} style={{ backgroundColor: '#1a140e', color: '#ffffff' }}>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-2B12KM11FY"
           strategy="lazyOnload"
