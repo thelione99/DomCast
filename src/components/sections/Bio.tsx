@@ -43,18 +43,21 @@ export function Bio() {
 
                         <div className="grid grid-cols-2 gap-6 pt-4 border-t border-white/10">
                             <div className="space-y-1">
-                                <h4 className="text-4xl tracking-tight text-white font-[family-name:var(--font-anton)]">13+</h4>
+                                <h3 className="text-4xl tracking-tight text-white font-[family-name:var(--font-anton)]">13+</h3>
                                 <p className="text-xs text-primary uppercase tracking-wider font-medium">Anni di Esperienza</p>
                             </div>
                             <div className="space-y-1">
-                                <h4 className="text-4xl tracking-tight text-white font-[family-name:var(--font-anton)]">500+</h4>
+                                <h3 className="text-4xl tracking-tight text-white font-[family-name:var(--font-anton)]">500+</h3>
                                 <p className="text-xs text-primary uppercase tracking-wider font-medium">Vite Trasformate</p>
                             </div>
                         </div>
 
-                        <div className="pt-4">
+                        <div className="pt-4 flex flex-col sm:flex-row gap-4">
                             <Button className="bg-white text-[#221910] hover:bg-gray-200 font-bold px-8 py-6 rounded-xl text-lg w-full sm:w-auto" asChild>
                                 <Link href="/coaching">Inizia il tuo percorso</Link>
+                            </Button>
+                            <Button variant="outline" className="border-white/20 text-white hover:bg-white/10 font-bold px-8 py-6 rounded-xl text-lg w-full sm:w-auto" asChild>
+                                <Link href="/qualifiche">Scopri le MIE Qualifiche</Link>
                             </Button>
                         </div>
                     </motion.div>
@@ -70,7 +73,7 @@ export function Bio() {
                         <div className="relative h-full w-full rounded-3xl overflow-hidden shadow-2xl shadow-primary/10 bg-[#2a2018] z-10 border border-white/5 group">
                             <Image
                                 src="/Dom.jpeg"
-                                alt="Domenico Castaldo"
+                                alt="Domenico Castaldo, Personal Trainer a Frattamaggiore, Napoli, Campania"
                                 fill
                                 sizes="(max-width: 768px) 100vw, 50vw"
                                 quality={80}

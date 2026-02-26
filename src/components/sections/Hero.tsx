@@ -22,6 +22,7 @@ export function Hero() {
                     quality={75}
                     className="object-cover object-center opacity-60"
                     priority
+                    fetchPriority="high"
                 />
 
                 {/* Gradient Overlay */}

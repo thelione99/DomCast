@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Instagram, Mail, MapPin } from "lucide-react";
+import { Instagram, Facebook, Mail, MapPin } from "lucide-react";
 
 export function Footer() {
     return (
@@ -25,15 +25,19 @@ export function Footer() {
 
                 <nav aria-label="Social media">
                     <div className="flex gap-6">
-                        <Link href="https://instagram.com" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-primary transition-colors p-2 hover:bg-white/5 rounded-full">
+                        <Link href="https://www.instagram.com/domcast.coach/" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-primary transition-colors p-2 hover:bg-white/5 rounded-full">
                             <Instagram className="h-6 w-6" />
                             <span className="sr-only">Instagram</span>
+                        </Link>
+                        <Link href="https://www.facebook.com/domcastfit/" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-primary transition-colors p-2 hover:bg-white/5 rounded-full">
+                            <Facebook className="h-6 w-6" />
+                            <span className="sr-only">Facebook</span>
                         </Link>
                         <Link href="mailto:info@domcast.it" className="text-gray-400 hover:text-primary transition-colors p-2 hover:bg-white/5 rounded-full">
                             <Mail className="h-6 w-6" />
                             <span className="sr-only">Email</span>
                         </Link>
-                        <Link href="#" className="text-gray-400 hover:text-primary transition-colors p-2 hover:bg-white/5 rounded-full">
+                        <Link href="https://maps.google.com/?q=Via+Massimo+Stanzione,+4,+80027,+Frattamaggiore,+NA,+Italia" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-primary transition-colors p-2 hover:bg-white/5 rounded-full">
                             <MapPin className="h-6 w-6" />
                             <span className="sr-only">Posizione</span>
                         </Link>
@@ -42,7 +46,7 @@ export function Footer() {
             </div>
 
             <div className="container mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 max-w-screen-xl px-4 mx-auto gap-4">
-                <p>&copy; {new Date().getFullYear()} Domcast Training. Tutti i diritti riservati.</p>
+                <p>&copy; {new Date().getFullYear()} Domcast Training. Tutti i diritti riservati. <span className="opacity-50 ml-2 text-[10px]">Ultimo aggiornamento: {new Date().toLocaleString('it-IT', { month: 'long', year: 'numeric' })}</span></p>
                 <nav aria-label="Link legali">
                     <div className="flex gap-6">
                         <Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>

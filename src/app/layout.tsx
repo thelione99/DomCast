@@ -105,6 +105,14 @@ export default function RootLayout({
       "@type": "Country",
       "name": "Italia"
     },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Via Massimo Stanzione, 4",
+      "addressLocality": "Frattamaggiore",
+      "postalCode": "80027",
+      "addressRegion": "NA",
+      "addressCountry": "IT"
+    },
     "priceRange": "€€",
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
@@ -127,7 +135,8 @@ export default function RootLayout({
       ]
     },
     "sameAs": [
-      "https://www.instagram.com/domcast.coach/"
+      "https://www.instagram.com/domcast.coach/",
+      "https://www.facebook.com/domcastfit/"
     ]
   };
 
