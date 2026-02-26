@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import { products } from '@/data/products'
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://domcast.it'
@@ -17,6 +18,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 0.8,
         },
         {
+            url: `${baseUrl}/qualifiche`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.8,
+        },
+        {
             url: `${baseUrl}/shop`,
             lastModified: new Date(),
             changeFrequency: 'weekly',
@@ -28,5 +35,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: 'yearly',
             priority: 0.5,
         },
+        ...products.map((product) => ({
+            url: `${baseUrl}/shop/${product.id}`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly' as const,
+            priority: 0.7,
+        })),
     ]
 }

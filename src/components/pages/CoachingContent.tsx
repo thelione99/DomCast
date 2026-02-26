@@ -66,39 +66,23 @@ export function CoachingContent() {
                         </div>
                     </div>
 
-                    {/* Contact/Booking Form */}
-                    <Card className="bg-[#2a2018] border-white/5 shadow-2xl shadow-black/20 order-1 lg:order-2">
+                    {/* Contact/Booking CTA */}
+                    <Card className="bg-[#2a2018] border-white/5 shadow-2xl shadow-black/20 order-1 lg:order-2 h-fit md:sticky md:top-32">
                         <CardHeader className="pb-6 border-b border-white/5">
-                            <CardTitle className="text-2xl font-bold uppercase text-white">Invia la tua candidatura</CardTitle>
+                            <CardTitle className="text-2xl font-[family-name:var(--font-anton)] uppercase text-white">Inizia il tuo percorso</CardTitle>
                         </CardHeader>
-                        <CardContent className="pt-6">
-                            <form className="space-y-6">
-                                <div className="grid grid-cols-2 gap-4">
-                                    <div className="space-y-2">
-                                        <Label htmlFor="first-name" className="text-gray-400">Nome</Label>
-                                        <Input id="first-name" placeholder="Mario" className="bg-[#221910] border-white/10 text-white placeholder:text-gray-600 focus:border-primary/50" />
-                                    </div>
-                                    <div className="space-y-2">
-                                        <Label htmlFor="last-name" className="text-gray-400">Cognome</Label>
-                                        <Input id="last-name" placeholder="Rossi" className="bg-[#221910] border-white/10 text-white placeholder:text-gray-600 focus:border-primary/50" />
-                                    </div>
-                                </div>
-                                <div className="space-y-2">
-                                    <Label htmlFor="email" className="text-gray-400">Email</Label>
-                                    <Input id="email" placeholder="mario@esempio.it" type="email" className="bg-[#221910] border-white/10 text-white placeholder:text-gray-600 focus:border-primary/50" />
-                                </div>
-                                <div className="space-y-2">
-                                    <Label htmlFor="goal" className="text-gray-400">Obiettivo Principale</Label>
-                                    <Input id="goal" placeholder="Perdita peso, Ipertrofia, etc." className="bg-[#221910] border-white/10 text-white placeholder:text-gray-600 focus:border-primary/50" />
-                                </div>
-                                <div className="space-y-2">
-                                    <Label htmlFor="message" className="text-gray-400">Parlami di te</Label>
-                                    <Textarea id="message" placeholder="Routine attuale, infortuni, esperienza..." className="bg-[#221910] border-white/10 text-white placeholder:text-gray-600 focus:border-primary/50 min-h-[120px]" />
-                                </div>
-                                <Button type="submit" className="w-full font-bold text-lg bg-primary text-[#221910] hover:bg-primary/90 h-14 rounded-xl" size="lg">
-                                    Invia Candidatura <Send className="ml-2 w-5 h-5" />
-                                </Button>
-                            </form>
+                        <CardContent className="pt-8 text-center space-y-6">
+                            <p className="text-gray-300 text-lg leading-relaxed">
+                                Il nostro Coaching non è per tutti. Per garantirti il massimo risultato, lavoriamo solo con persone realmente motivate.
+                            </p>
+                            <p className="text-gray-400 font-light mb-8">
+                                Compila il nostro questionario approfondito per permetterci di analizzare la tua situazione e capire se possiamo aiutarti nel migliore dei modi.
+                            </p>
+                            <Button asChild className="w-full font-bold text-lg bg-primary text-[#221910] hover:bg-primary/90 h-16 rounded-xl transition-all duration-300 shadow-[0_0_20px_rgba(234,88,12,0.3)] hover:shadow-[0_0_30px_rgba(234,88,12,0.6)]" size="lg">
+                                <a href="/coaching/questionario">
+                                    Vai al Questionario <Send className="ml-3 w-6 h-6" />
+                                </a>
+                            </Button>
                         </CardContent>
                     </Card>
                 </div>

@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
+import { products as allProducts } from "@/data/products";
 
 export const metadata: Metadata = {
     title: "Shop Programmi di Allenamento",
@@ -15,54 +16,52 @@ export const metadata: Metadata = {
 };
 
 export default function ShopPage() {
-    const products = [
-        {
-            id: 1,
-            name: "Definizione 4 Settimane",
-            price: 49.00,
-            category: "Dimagrimento",
-            image: "placeholder-1",
-        },
-        {
-            id: 3,
-            name: "Costruzione Glutei",
-            price: 59.00,
-            category: "Specializzato",
-            image: "placeholder-3",
-        },
-        {
-            id: 4,
-            name: "Guida Allenamento a Casa",
-            price: 49.00,
-            category: "Home Fitness",
-            image: "placeholder-4",
-        },
-    ];
+    const products = allProducts;
 
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "CollectionPage",
-        "name": "Shop Domcast Training",
-        "url": "https://domcast.it/shop",
-        "description": "Programmi di allenamento comprovati per ottenere risultati, scaricabili istantaneamente.",
-        "mainEntity": {
-            "@type": "ItemList",
-            "itemListElement": products.map((product, index) => ({
-                "@type": "ListItem",
-                "position": index + 1,
-                "item": {
-                    "@type": "Product",
-                    "name": product.name,
-                    "offers": {
-                        "@type": "Offer",
-                        "price": product.price.toFixed(2),
-                        "priceCurrency": "EUR",
-                        "availability": "https://schema.org/InStock",
+    const jsonLd = [
+        {
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": "Shop Domcast Training",
+            "url": "https://domcast.it/shop",
+            "description": "Programmi di allenamento comprovati per ottenere risultati, scaricabili istantaneamente.",
+            "mainEntity": {
+                "@type": "ItemList",
+                "itemListElement": products.map((product, index) => ({
+                    "@type": "ListItem",
+                    "position": index + 1,
+                    "item": {
+                        "@type": "Product",
+                        "name": product.name,
+                        "offers": {
+                            "@type": "Offer",
+                            "price": product.price.toFixed(2),
+                            "priceCurrency": "EUR",
+                            "availability": "https://schema.org/InStock",
+                        },
                     },
-                },
-            })),
+                })),
+            },
         },
-    };
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://domcast.it/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Shop",
+                    "item": "https://domcast.it/shop"
+                }
+            ]
+        }
+    ];
 
     return (
         <div className="container py-20 px-4 md:px-6 max-w-screen-xl">

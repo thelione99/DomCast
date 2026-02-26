@@ -13,28 +13,48 @@ export const metadata: Metadata = {
 };
 
 export default function CoachingPage() {
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "name": "Elite Coaching Online",
-        "provider": {
-            "@type": "Person",
-            "name": "Domenico Castaldo",
-            "url": "https://domcast.it",
+    const jsonLd = [
+        {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Elite Coaching Online",
+            "provider": {
+                "@type": "Person",
+                "name": "Domenico Castaldo",
+                "url": "https://domcast.it",
+            },
+            "description": "Programma di coaching online personalizzato con allenamento, nutrizione e supporto continuo.",
+            "url": "https://domcast.it/coaching",
+            "areaServed": "IT",
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Piani Coaching",
+                "itemListElement": [
+                    { "@type": "Offer", "name": "Mensile", "price": "130", "priceCurrency": "EUR" },
+                    { "@type": "Offer", "name": "Trimestrale", "price": "350", "priceCurrency": "EUR" },
+                    { "@type": "Offer", "name": "Semestrale", "price": "590", "priceCurrency": "EUR" },
+                ],
+            },
         },
-        "description": "Programma di coaching online personalizzato con allenamento, nutrizione e supporto continuo.",
-        "url": "https://domcast.it/coaching",
-        "areaServed": "IT",
-        "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Piani Coaching",
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
             "itemListElement": [
-                { "@type": "Offer", "name": "Mensile", "price": "130", "priceCurrency": "EUR" },
-                { "@type": "Offer", "name": "Trimestrale", "price": "350", "priceCurrency": "EUR" },
-                { "@type": "Offer", "name": "Semestrale", "price": "590", "priceCurrency": "EUR" },
-            ],
-        },
-    };
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://domcast.it/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Elite Coaching Online",
+                    "item": "https://domcast.it/coaching"
+                }
+            ]
+        }
+    ];
 
     return (
         <>
