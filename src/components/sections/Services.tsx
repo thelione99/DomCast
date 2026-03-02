@@ -137,17 +137,24 @@ export function Services() {
                                     </div>
                                     <div className="w-full h-px bg-white/5 mb-6" />
                                     <ul className="space-y-5">
-                                        {plan.features.map((feature, i) => (
-                                            <li key={i} className="flex items-start text-sm text-gray-300">
-                                                <Check className="h-5 w-5 text-primary mr-3 flex-shrink-0 mt-0.5" />
-                                                <span className="leading-snug">{feature}</span>
-                                            </li>
-                                        ))}
+                                        {plan.features.map((feature, i) => {
+                                            const coachingEmojis = ["🏋️‍♂️", "📈", "🎥", "📱", "⚙️"];
+                                            return (
+                                                <li key={i} className="flex items-start text-sm text-gray-300">
+                                                    {isCoaching ? (
+                                                        <span className="text-lg mr-3 flex-shrink-0 -mt-0.5">{coachingEmojis[i] || "✅"}</span>
+                                                    ) : (
+                                                        <Check className="h-5 w-5 text-primary mr-3 flex-shrink-0 mt-0.5" />
+                                                    )}
+                                                    <span className="leading-snug">{feature}</span>
+                                                </li>
+                                            );
+                                        })}
                                     </ul>
                                 </CardContent>
                                 <CardFooter className="pt-4">
                                     <Button className={`w-full font-bold h-12 rounded-xl text-base transition-all duration-300 ${plan.popular ? 'bg-primary text-[#221910] hover:bg-primary/90' : 'bg-white/5 text-white hover:bg-white/10 hover:text-primary border border-white/5'}`} asChild>
-                                        <Link href={plan.link} className="flex items-center justify-center gap-2 group">
+                                        <Link href={isCoaching ? `${plan.link}?durata=${coachingDuration}` : plan.link} className="flex items-center justify-center gap-2 group">
                                             {plan.buttonText}
                                             {plan.popular && <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />}
                                         </Link>

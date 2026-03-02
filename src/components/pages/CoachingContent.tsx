@@ -7,7 +7,8 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Check, Send } from "lucide-react";
 
-export function CoachingContent() {
+export function CoachingContent({ durata }: { durata?: string }) {
+    const questionarioUrl = durata ? `/coaching/questionario?durata=${durata}` : `/coaching/questionario`;
     return (
         <div className="min-h-screen bg-[#221910] text-white pt-24 pb-20">
             <div className="container px-4 md:px-6 max-w-screen-xl mx-auto">
@@ -35,18 +36,18 @@ export function CoachingContent() {
                             <h3 className="text-2xl font-bold text-white">Cosa è incluso:</h3>
                             <ul className="space-y-4">
                                 {[
-                                    "Programma di Allenamento Personalizzato",
-                                    "Protocollo Nutrizionale Su Misura",
-                                    "Check Settimanali & Adattamenti",
-                                    "Supporto WhatsApp 24/7",
-                                    "Analisi Tecnica Video",
-                                    "Accesso alla Community Privata"
+                                    { text: "Programma di Allenamento Personalizzato", emoji: "🏋️‍♂️" },
+                                    { text: "Protocollo Nutrizionale Su Misura", emoji: "🥗" },
+                                    { text: "Check Settimanali & Adattamenti", emoji: "📈" },
+                                    { text: "Supporto WhatsApp 24/7", emoji: "📱" },
+                                    { text: "Analisi Tecnica Video", emoji: "🎥" },
+                                    { text: "Accesso alla Community Privata", emoji: "🤝" }
                                 ].map((item, i) => (
                                     <li key={i} className="flex items-center text-gray-300 text-lg">
-                                        <div className="bg-primary/10 p-1 rounded-full mr-4">
-                                            <Check className="h-5 w-5 text-primary" />
+                                        <div className="bg-primary/10 w-10 h-10 flex items-center justify-center rounded-full mr-4 shrink-0">
+                                            <span className="text-xl">{item.emoji}</span>
                                         </div>
-                                        {item}
+                                        {item.text}
                                     </li>
                                 ))}
                             </ul>
@@ -79,7 +80,7 @@ export function CoachingContent() {
                                 Compila il nostro questionario approfondito per permetterci di analizzare la tua situazione e capire se possiamo aiutarti nel migliore dei modi.
                             </p>
                             <Button asChild className="w-full font-bold text-lg bg-primary text-[#221910] hover:bg-primary/90 h-16 rounded-xl transition-all duration-300 shadow-[0_0_20px_rgba(234,88,12,0.3)] hover:shadow-[0_0_30px_rgba(234,88,12,0.6)]" size="lg">
-                                <a href="/coaching/questionario">
+                                <a href={questionarioUrl}>
                                     Vai al Questionario <Send className="ml-3 w-6 h-6" />
                                 </a>
                             </Button>

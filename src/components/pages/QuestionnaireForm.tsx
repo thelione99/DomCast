@@ -91,7 +91,7 @@ const STEPS = [
     }
 ];
 
-export function QuestionnaireForm() {
+export function QuestionnaireForm({ durata }: { durata?: string }) {
     const [currentStep, setCurrentStep] = useState(0);
     const [formData, setFormData] = useState<FormState>({});
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -140,21 +140,24 @@ export function QuestionnaireForm() {
         setError(null);
 
         try {
-            const res = await fetch('/api/send-questionnaire', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData)
+            const durataText = durata ? ` (Selezionato piano ${durata} mes${durata === '1' ? 'e' : 'i'})` : "";
+            let message = `Ciao Domenico, ho appena compilato il questionario per il Coaching Online${durataText}. Ecco le mie risposte:\n\n`;
+
+            Object.entries(formData).forEach(([stepTitle, fields]) => {
+                message += `*${stepTitle}*\n`;
+                Object.entries(fields).forEach(([fieldName, value]) => {
+                    const valStr = Array.isArray(value) ? value.join(", ") : value;
+                    message += `- ${fieldName}: ${valStr}\n`;
+                });
+                message += `\n`;
             });
 
-            const result = await res.json();
+            const whatsappUrl = `https://wa.me/393924683142?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
 
-            if (result.success) {
-                setIsSuccess(true);
-            } else {
-                setError("C'è stato un errore nell'invio. Riprova più tardi.");
-            }
+            setIsSuccess(true);
         } catch (err) {
-            setError("Impossibile connettersi al server. Controlla la connessione e riprova.");
+            setError("Si è verificato un errore. Impossibile generare il messaggio WhatsApp.");
         } finally {
             setIsSubmitting(false);
             window.scrollTo({ top: 0, behavior: "smooth" });

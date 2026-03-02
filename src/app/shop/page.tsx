@@ -64,7 +64,7 @@ export default function ShopPage() {
     ];
 
     return (
-        <div className="container py-20 px-4 md:px-6 max-w-screen-xl">
+        <div className="container py-20 px-4 md:px-6 max-w-screen-xl mx-auto">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

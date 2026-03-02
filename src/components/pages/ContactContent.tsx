@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -7,8 +8,27 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 
 export function ContactContent() {
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [subject, setSubject] = useState("");
+    const [message, setMessage] = useState("");
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+
+        const text = `Ciao Domenico, vorrei avere delle informazioni.\n\n*Nome:* ${name}\n*Email:* ${email}\n*Oggetto:* ${subject}\n*Messaggio:*\n${message}`;
+        const whatsappUrl = `https://wa.me/393924683142?text=${encodeURIComponent(text)}`;
+
+        window.open(whatsappUrl, '_blank');
+
+        setName("");
+        setEmail("");
+        setSubject("");
+        setMessage("");
+    };
+
     return (
-        <div className="container py-20 px-4 md:px-6 max-w-screen-md">
+        <div className="container py-20 px-4 md:px-6 max-w-screen-md mx-auto">
             <div className="text-center mb-12">
                 <h1 className="text-4xl md:text-5xl tracking-tighter uppercase mb-4 text-white font-[family-name:var(--font-anton)]">
                     Contattami <span className="text-primary">Ora</span>
@@ -23,26 +43,28 @@ export function ContactContent() {
                     <CardTitle className="text-xl font-bold uppercase">Invia un messaggio</CardTitle>
                 </CardHeader>
                 <CardContent>
-                    <form className="space-y-6">
+                    <form onSubmit={handleSubmit} className="space-y-6">
                         <div className="grid grid-cols-2 gap-4">
                             <div className="space-y-2">
                                 <Label htmlFor="name">Nome</Label>
-                                <Input id="name" placeholder="Il tuo nome" className="bg-background" />
+                                <Input id="name" value={name} onChange={e => setName(e.target.value)} required placeholder="Il tuo nome" className="bg-background" />
                             </div>
                             <div className="space-y-2">
                                 <Label htmlFor="email">Email</Label>
-                                <Input id="email" placeholder="mario@esempio.it" type="email" className="bg-background" />
+                                <Input id="email" value={email} onChange={e => setEmail(e.target.value)} required placeholder="mario@esempio.it" type="email" className="bg-background" />
                             </div>
                         </div>
                         <div className="space-y-2">
                             <Label htmlFor="subject">Oggetto</Label>
-                            <Input id="subject" placeholder="Info coaching, Domande shop, ecc." className="bg-background" />
+                            <Input id="subject" value={subject} onChange={e => setSubject(e.target.value)} required placeholder="Info coaching, Domande shop, ecc." className="bg-background" />
                         </div>
                         <div className="space-y-2">
                             <Label htmlFor="message">Messaggio</Label>
-                            <Textarea id="message" placeholder="Come posso aiutarti?" className="min-h-[150px] bg-background" />
+                            <Textarea id="message" value={message} onChange={e => setMessage(e.target.value)} required placeholder="Come posso aiutarti?" className="min-h-[150px] bg-background" />
                         </div>
-                        <Button type="submit" className="w-full font-bold text-lg" size="lg">Invia Messaggio</Button>
+                        <Button type="submit" className="w-full font-bold text-lg bg-green-600 hover:bg-green-700 text-white" size="lg">
+                            Invia Messaggio su WhatsApp
+                        </Button>
                     </form>
                 </CardContent>
             </Card>

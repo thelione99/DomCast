@@ -13,7 +13,10 @@ export const metadata: Metadata = {
     },
 };
 
-export default function QuestionnairePage() {
+export default async function QuestionnairePage({ searchParams }: { searchParams: Promise<{ [key: string]: string | string[] | undefined }> }) {
+    const params = await searchParams;
+    const durata = params?.durata as string | undefined;
+
     return (
         <div className="min-h-screen bg-[#221910] pt-24 pb-20">
             <div className="container px-4 md:px-6 max-w-screen-xl mx-auto">
@@ -35,7 +38,7 @@ export default function QuestionnairePage() {
                     </p>
                 </div>
 
-                <QuestionnaireForm />
+                <QuestionnaireForm durata={durata} />
             </div>
         </div>
     );

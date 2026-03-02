@@ -12,7 +12,9 @@ export const metadata: Metadata = {
     },
 };
 
-export default function CoachingPage() {
+export default async function CoachingPage({ searchParams }: { searchParams: Promise<{ [key: string]: string | string[] | undefined }> }) {
+    const params = await searchParams;
+    const durata = params?.durata as string | undefined;
     const jsonLd = [
         {
             "@context": "https://schema.org",
@@ -62,7 +64,7 @@ export default function CoachingPage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
-            <CoachingContent />
+            <CoachingContent durata={durata} />
         </>
     );
 }

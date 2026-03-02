@@ -3,29 +3,31 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
-import { Check, ArrowLeft } from "lucide-react";
-
+import { Check, ArrowLeft, MessageCircle } from "lucide-react";
+import { getProductById } from "@/data/products";
 interface ProductContentProps {
     productId: string;
 }
 
 export function ProductContent({ productId }: ProductContentProps) {
-    // Mock data fetch based on ID
-    const product = {
-        id: productId,
-        name: "Programma Elite",
-        price: 49.00,
-        description: "Una guida completa per trasformare il tuo fisico. Questo programma è progettato per atleti intermedi e avanzati che vogliono superare i propri limiti.",
-        features: [
-            "Piano dettagliato di 4 settimane",
-            "Accesso alla libreria video",
-            "Guida nutrizionale",
-            "Tracciamento tramite app"
-        ]
-    };
+    const product = getProductById(productId);
+
+    if (!product) {
+        return <div>Prodotto non trovato</div>;
+    }
+
+    const mockFeatures = [
+        "Piano dettagliato della scheda",
+        "Video esecuzione esercizi",
+        "App per tracciare i progressi",
+        "Suggerimenti sull'intensità"
+    ];
+
+    const whatsappMessage = encodeURIComponent(`Ciao Domenico, sono interessato al pacchetto: ${product.name}`);
+    const whatsappUrl = `https://wa.me/393924683142?text=${whatsappMessage}`;
 
     return (
-        <div className="container py-20 px-4 md:px-6 max-w-screen-xl">
+        <div className="container py-20 px-4 md:px-6 max-w-screen-xl mx-auto">
             <Link href="/shop" className="flex items-center text-muted-foreground hover:text-primary mb-8 transition-colors">
                 <ArrowLeft className="mr-2 h-4 w-4" /> Torna allo Shop
             </Link>
@@ -51,16 +53,20 @@ export function ProductContent({ productId }: ProductContentProps) {
                     <div className="space-y-4">
                         <h2 className="text-xl font-bold text-white">Cosa è Incluso:</h2>
                         <ul className="space-y-3">
-                            {product.features.map((feature, i) => (
+                            {mockFeatures.map((feature, i) => (
                                 <li key={i} className="flex items-center text-gray-300">
-                                    <Check className="h-5 w-5 text-primary mr-3" />
+                                    <span className="mr-3 flex-shrink-0 text-lg">✅</span>
                                     {feature}
                                 </li>
                             ))}
                         </ul>
                     </div>
 
-                    <Button size="lg" className="w-full font-bold text-lg mt-8">Aggiungi al Carrello</Button>
+                    <Button size="lg" className="w-full font-bold text-lg mt-8 bg-green-600 hover:bg-green-700 text-white border-0 shadow-[0_0_20px_rgba(22,163,74,0.3)] hover:shadow-[0_0_30px_rgba(22,163,74,0.6)] transition-all" asChild>
+                        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                            <MessageCircle className="mr-2 h-5 w-5" /> Richiedi su WhatsApp
+                        </a>
+                    </Button>
                 </div>
             </div>
         </div>
