@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     template: "%s | Domcast Training"
   },
   description: "Trasforma il tuo corpo con Domenico Castaldo. Programmi di allenamento personalizzati, nutrizione sportiva e coaching online per ipertrofia e dimagrimento.",
-  keywords: ["Personal Trainer", "Online Coaching", "Scheda Allenamento", "Ipertrofia", "Dimagrimento", "Domenico Castaldo", "Domcast", "Fitness Italia"],
+  keywords: ["Personal Trainer", "Online Coaching", "Scheda Allenamento", "Ipertrofia", "Dimagrimento", "Allenamento Forza", "Costruzione Glutei", "Allenamento a Casa", "Domenico Castaldo", "Domcast", "Fitness Italia", "Personal Trainer Online"],
   authors: [{ name: "Domenico Castaldo" }],
   creator: "Domenico Castaldo",
   openGraph: {

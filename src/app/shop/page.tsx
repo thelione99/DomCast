@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -7,10 +8,10 @@ import { products as allProducts } from "@/data/products";
 
 export const metadata: Metadata = {
     title: "Shop Programmi di Allenamento",
-    description: "Acquista programmi di allenamento comprovati da Domenico Castaldo. Schede per dimagrimento, ipertrofia e allenamento a casa, scaricabili istantaneamente.",
+    description: "Acquista programmi di allenamento comprovati da Domenico Castaldo. Schede per definizione, forza, costruzione glutei e allenamento a casa, scaricabili istantaneamente.",
     openGraph: {
         title: "Shop | Domcast Training",
-        description: "Programmi di allenamento personalizzati scaricabili istantaneamente. Dimagrimento, ipertrofia e home fitness.",
+        description: "Programmi di allenamento personalizzati scaricabili istantaneamente. Definizione, forza, glutei e home fitness.",
         url: "https://domcast.it/shop",
     },
 };
@@ -33,11 +34,34 @@ export default function ShopPage() {
                     "item": {
                         "@type": "Product",
                         "name": product.name,
+                        "image": `https://domcast.it${product.image}`,
+                        "description": product.description,
+                        "brand": { "@type": "Brand", "name": "Domcast Training" },
+                        "aggregateRating": {
+                            "@type": "AggregateRating",
+                            "ratingValue": product.aggregateRating.toString(),
+                            "reviewCount": product.ratingCount.toString(),
+                            "bestRating": "5",
+                            "worstRating": "1",
+                        },
+                        "review": product.reviews.map((review) => ({
+                            "@type": "Review",
+                            "author": { "@type": "Person", "name": review.author },
+                            "reviewRating": {
+                                "@type": "Rating",
+                                "ratingValue": review.rating.toString(),
+                                "bestRating": "5",
+                                "worstRating": "1",
+                            },
+                            "reviewBody": review.body,
+                        })),
                         "offers": {
                             "@type": "Offer",
                             "price": product.price.toFixed(2),
                             "priceCurrency": "EUR",
                             "availability": "https://schema.org/InStock",
+                            "priceValidUntil": product.priceValidUntil,
+                            "url": `https://domcast.it/shop/${product.id}`,
                         },
                     },
                 })),
@@ -81,11 +105,16 @@ export default function ShopPage() {
             <div className="grid grid-cols-1 sc-md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {products.map((product) => (
                     <Card key={product.id} className="overflow-hidden bg-card border-border flex flex-col">
-                        <div className="aspect-square bg-muted relative flex items-center justify-center group">
-                            <span className="text-muted-foreground font-bold group-hover:scale-110 transition-transform duration-300">
-                                PRODUCT IMAGE
-                            </span>
-                            <Badge className="absolute top-2 right-2 bg-primary text-black font-bold">
+                        <div className="aspect-square bg-muted relative overflow-hidden group">
+                            <Image
+                                src={product.image}
+                                alt={product.alt}
+                                fill
+                                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                                className="object-cover group-hover:scale-110 transition-transform duration-500"
+                                loading="lazy"
+                            />
+                            <Badge className="absolute top-2 right-2 bg-primary text-black font-bold z-10">
                                 {product.category}
                             </Badge>
                         </div>

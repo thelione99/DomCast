@@ -10,15 +10,15 @@ export function Services() {
     const [coachingDuration, setCoachingDuration] = React.useState<1 | 3 | 6>(3);
 
     const coachingPricing = {
-        1: { price: "130", period: "mese", savings: 0, label: "Mensile", fullPrice: 130 },
-        3: { price: "350", period: "3 mesi", savings: 40, label: "Trimestrale", fullPrice: 390 },
-        6: { price: "590", period: "6 mesi", savings: 190, label: "Semestrale", fullPrice: 780 }
+        1: { price: "129.99", period: "mese", savings: 0, label: "Mensile", fullPrice: 130 },
+        3: { price: "349.99", period: "3 mesi", savings: 40, label: "Trimestrale", fullPrice: 390 },
+        6: { price: "589.99", period: "6 mesi", savings: 190, label: "Semestrale", fullPrice: 780 }
     };
 
     const plans = [
         {
             name: "Scheda Allenamento",
-            price: "49",
+            price: "49.99",
             priceLabel: "A partire da ",
             period: "mese",
             description: "Programma personalizzato per i tuoi obiettivi.",

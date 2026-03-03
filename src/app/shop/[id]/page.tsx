@@ -20,6 +20,14 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
             title: `${product.name} | Domcast Training`,
             description: product.description,
             url: `https://domcast.it/shop/${id}`,
+            images: [
+                {
+                    url: product.image,
+                    width: 1000,
+                    height: 1000,
+                    alt: product.alt,
+                },
+            ],
         },
     };
 }
@@ -37,13 +45,34 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
         "@type": "Product",
         "name": product.name,
         "description": product.description,
+        "image": `https://domcast.it${product.image}`,
         "url": `https://domcast.it/shop/${id}`,
         "brand": { "@type": "Brand", "name": "Domcast Training" },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": product.aggregateRating.toString(),
+            "reviewCount": product.ratingCount.toString(),
+            "bestRating": "5",
+            "worstRating": "1",
+        },
+        "review": product.reviews.map((review) => ({
+            "@type": "Review",
+            "author": { "@type": "Person", "name": review.author },
+            "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": review.rating.toString(),
+                "bestRating": "5",
+                "worstRating": "1",
+            },
+            "reviewBody": review.body,
+        })),
         "offers": {
             "@type": "Offer",
             "price": product.price.toFixed(2),
             "priceCurrency": "EUR",
             "availability": "https://schema.org/InStock",
+            "priceValidUntil": product.priceValidUntil,
+            "url": `https://domcast.it/shop/${id}`,
         },
     };
 
