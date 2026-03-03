@@ -121,22 +121,22 @@ export function Hero() {
                             style={{ animationDelay: "0.6s" }}
                         >
                             <div className="flex items-center gap-4 mb-4">
-                                <div className="w-12 h-12 rounded-full border-2 border-primary overflow-hidden relative shadow-lg shadow-primary/20 bg-primary/20 flex items-center justify-center">
-                                    <span className="text-primary font-bold text-sm">MR</span>
+                                <div className="w-12 h-12 rounded-full border-2 border-primary overflow-hidden relative shadow-lg shadow-primary/20 bg-blue-600 flex items-center justify-center">
+                                    <span className="text-white font-bold text-sm">GG</span>
                                 </div>
                                 <div>
-                                    <h4 className="text-white font-bold text-sm">Marco Rossi</h4>
+                                    <h4 className="text-white font-bold text-sm">Gregorio Gondola</h4>
                                     <div className="flex text-primary text-xs">
                                         {[1, 2, 3, 4, 5].map((s) => <Star key={s} className="w-3.5 h-3.5 fill-current" />)}
                                     </div>
                                 </div>
                             </div>
                             <p className="text-gray-300 text-sm italic leading-relaxed">
-                                &quot;Ho cambiato completamente approccio all&apos;allenamento. In soli 3 mesi ho raggiunto obiettivi che inseguivo da anni.&quot;
+                                &quot;Grazie alla sua professionalità e bravura siamo riusciti insieme a raggiungere grandi obbiettivi. Nulla da aggiungere, il migliore!&quot;
                             </p>
                             <div className="mt-4 flex items-center justify-between text-xs text-gray-400 border-t border-white/10 pt-3">
-                                <span className="flex items-center gap-1"><CheckCircle2 className="w-3 h-3 text-primary" /> Programma Ipertrofia</span>
-                                <span className="text-primary font-bold bg-primary/10 px-2 py-1 rounded">-8kg grasso</span>
+                                <a href="https://maps.app.goo.gl/5Hx7iDc31yjmsKGd6" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-white transition-colors"><CheckCircle2 className="w-3 h-3 text-primary" /> Pubblicata su Google</a>
+                                <span className="text-primary font-bold bg-primary/10 px-2 py-1 rounded">5 mesi fa</span>
                             </div>
                         </div>
 
