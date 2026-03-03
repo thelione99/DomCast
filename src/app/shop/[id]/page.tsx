@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ProductContent } from "@/components/pages/ProductContent";
 import { getProductById } from "@/data/products";
+import { googleReviews, aggregateGoogleRating } from "@/data/google-reviews";
 
 // Dynamic metadata generation based on product ID
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
@@ -50,21 +51,21 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
         "brand": { "@type": "Brand", "name": "Domcast Training" },
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": product.aggregateRating.toString(),
-            "reviewCount": product.ratingCount.toString(),
+            "ratingValue": aggregateGoogleRating.ratingValue.toString(),
+            "reviewCount": aggregateGoogleRating.reviewCount.toString(),
             "bestRating": "5",
             "worstRating": "1",
         },
-        "review": product.reviews.map((review) => ({
+        "review": googleReviews.map((review) => ({
             "@type": "Review",
-            "author": { "@type": "Person", "name": review.author },
+            "author": { "@type": "Person", "name": review.author_name },
             "reviewRating": {
                 "@type": "Rating",
                 "ratingValue": review.rating.toString(),
                 "bestRating": "5",
                 "worstRating": "1",
             },
-            "reviewBody": review.body,
+            "reviewBody": review.text,
         })),
         "offers": {
             "@type": "Offer",
