@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Lexend, Caveat, Anton } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import { aggregateGoogleRating } from "@/data/google-reviews";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
@@ -96,6 +97,24 @@ export default function RootLayout({
     "image": "https://domcast.it/Dom.jpeg",
     "jobTitle": "Personal Trainer Certificato ISSA",
     "description": "Personal Trainer con oltre 13 anni di esperienza, specialista certificato in forza, condizionamento e nutrizione sportiva. Coaching online e schede personalizzate per ipertrofia e dimagrimento.",
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "Certificazione Professionale",
+        "name": "ISSA Certified Personal Trainer",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "International Sports Sciences Association (ISSA)"
+        }
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": aggregateGoogleRating.ratingValue,
+      "reviewCount": aggregateGoogleRating.reviewCount,
+      "bestRating": "5",
+      "worstRating": "1"
+    },
     "knowsAbout": [
       "Personal Training",
       "Ipertrofia Muscolare",
@@ -139,7 +158,8 @@ export default function RootLayout({
     },
     "sameAs": [
       "https://www.instagram.com/domcast.coach/",
-      "https://www.facebook.com/domcastfit/"
+      "https://www.facebook.com/domcastfit/",
+      "https://maps.app.goo.gl/5Hx7iDc31yjmsKGd6"
     ]
   };
 

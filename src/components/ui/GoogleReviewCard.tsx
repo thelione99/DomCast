@@ -67,9 +67,14 @@ export function GoogleReviewCard({ review }: { review: GoogleReview }) {
             <p className="text-gray-300 text-sm leading-relaxed">{review.text}</p>
 
             {/* Footer badge */}
-            <p className="text-[10px] text-gray-500 uppercase tracking-widest pt-1">
+            <a
+                href="https://maps.app.goo.gl/5Hx7iDc31yjmsKGd6"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-[10px] text-gray-500 uppercase tracking-widest pt-1 hover:text-white transition-colors w-fit"
+            >
                 Pubblicata su Google
-            </p>
+            </a>
         </div>
     );
 }
