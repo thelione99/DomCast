@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { useRef } from "react";
-import { googleReviews } from "@/data/google-reviews";
+import { allGoogleReviews } from "@/data/google-reviews";
 import { GoogleReviewCard } from "@/components/ui/GoogleReviewCard";
 
 export function Transformations() {
@@ -38,7 +38,7 @@ export function Transformations() {
                     }}
                 >
                     <CarouselContent className="-ml-4">
-                        {googleReviews.map((review, i) => (
+                        {allGoogleReviews.map((review, i) => (
                             <CarouselItem key={i} className="pl-4 md:basis-1/2 lg:basis-1/3">
                                 <div className="h-full">
                                     <GoogleReviewCard review={review} />

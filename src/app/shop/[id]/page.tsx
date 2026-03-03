@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ProductContent } from "@/components/pages/ProductContent";
 import { getProductById } from "@/data/products";
-import { googleReviews, aggregateGoogleRating } from "@/data/google-reviews";
+import { getProductReviews, aggregateGoogleRating } from "@/data/google-reviews";
 
 // Dynamic metadata generation based on product ID
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
@@ -56,7 +56,7 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
             "bestRating": "5",
             "worstRating": "1",
         },
-        "review": googleReviews.map((review) => ({
+        "review": getProductReviews(product.id).map((review) => ({
             "@type": "Review",
             "author": { "@type": "Person", "name": review.author_name },
             "reviewRating": {

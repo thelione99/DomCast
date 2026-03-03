@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import { ArrowLeft, MessageCircle, Star } from "lucide-react";
 import { getProductById } from "@/data/products";
-import { googleReviews } from "@/data/google-reviews";
+import { getProductReviews } from "@/data/google-reviews";
 import { GoogleReviewCard } from "@/components/ui/GoogleReviewCard";
 
 interface ProductContentProps {
@@ -87,7 +87,7 @@ export function ProductContent({ productId }: ProductContentProps) {
                     {/* Google Reviews */}
                     <div className="space-y-4 pt-4 border-t border-white/10">
                         <h2 className="text-xl font-bold text-white">Recensioni Clienti:</h2>
-                        {googleReviews.map((review, i) => (
+                        {getProductReviews(product.id).map((review, i) => (
                             <GoogleReviewCard key={i} review={review} />
                         ))}
                     </div>

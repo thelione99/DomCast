@@ -5,7 +5,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import { products as allProducts } from "@/data/products";
-import { googleReviews, aggregateGoogleRating } from "@/data/google-reviews";
+import { getProductReviews, aggregateGoogleRating } from "@/data/google-reviews";
 
 export const metadata: Metadata = {
     title: "Shop Programmi di Allenamento",
@@ -45,7 +45,7 @@ export default function ShopPage() {
                             "bestRating": "5",
                             "worstRating": "1",
                         },
-                        "review": googleReviews.map((review) => ({
+                        "review": getProductReviews(product.id).map((review) => ({
                             "@type": "Review",
                             "author": { "@type": "Person", "name": review.author_name },
                             "reviewRating": {
