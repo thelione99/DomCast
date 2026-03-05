@@ -35,10 +35,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://domcast.it'), // Replace with actual domain when live
   icons: {
-    icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/Logo_Domcast-4.ico', sizes: '48x48', type: 'image/x-icon' },
-    ],
+    icon: '/favicon.ico',
     apple: '/Logo_Domcast-4.ico',
   },
   title: {
