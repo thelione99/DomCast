@@ -35,14 +35,18 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://domcast.it'), // Replace with actual domain when live
   icons: {
-    icon: '/favicon.ico',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/Logo_Domcast-4.ico', sizes: '48x48', type: 'image/x-icon' },
+    ],
+    apple: '/Logo_Domcast-4.ico',
   },
   title: {
-    default: "Domcast | Elite Personal Training & Online Coaching",
-    template: "%s | Domcast Training"
+    default: "Domcast | Personal Trainer Frattamaggiore & Online Coaching",
+    template: "%s | Domcast Personal Trainer"
   },
-  description: "Trasforma il tuo corpo con Domenico Castaldo. Programmi di allenamento personalizzati, nutrizione sportiva e coaching online per ipertrofia e dimagrimento.",
-  keywords: ["Personal Trainer", "Online Coaching", "Scheda Allenamento", "Ipertrofia", "Dimagrimento", "Allenamento Forza", "Costruzione Glutei", "Allenamento a Casa", "Domenico Castaldo", "Domcast", "Fitness Italia", "Personal Trainer Online"],
+  description: "Trasforma il tuo corpo con Domenico Castaldo, Personal Trainer a Frattamaggiore (Napoli). Programmi personalizzati, palestra donne, posturale e coaching online.",
+  keywords: ["Personal Trainer Frattamaggiore", "Palestra Frattamaggiore", "Online Coaching", "Palestra Solo Donne", "Allenamento Posturale", "Scheda Allenamento", "Ipertrofia", "Dimagrimento", "Domenico Castaldo", "Domcast", "Personal Trainer Napoli", "Fitness Italia"],
   authors: [{ name: "Domenico Castaldo" }],
   creator: "Domenico Castaldo",
   openGraph: {

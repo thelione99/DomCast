@@ -63,6 +63,23 @@ export default function ShopPage() {
                             "availability": "https://schema.org/InStock",
                             "priceValidUntil": product.priceValidUntil,
                             "url": `https://domcast.it/shop/${product.id}`,
+                            "hasMerchantReturnPolicy": {
+                                "@type": "MerchantReturnPolicy",
+                                "applicableCountry": "IT",
+                                "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted",
+                            },
+                            "shippingDetails": {
+                                "@type": "OfferShippingDetails",
+                                "shippingRate": {
+                                    "@type": "MonetaryAmount",
+                                    "value": "0",
+                                    "currency": "EUR",
+                                },
+                                "shippingDestination": {
+                                    "@type": "DefinedRegion",
+                                    "addressCountry": "IT",
+                                },
+                            },
                         },
                     },
                 })),

@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, PlayCircle, Star, ChevronDown, CheckCircle2 } from "lucide-react";
+import { ArrowRight, PlayCircle, Star, ChevronDown, CheckCircle2, Instagram } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -63,7 +63,7 @@ export function Hero() {
                             className="text-base md:text-xl text-center lg:text-left text-gray-300 max-w-xl mx-auto lg:mx-0 font-light leading-relaxed px-4 lg:px-0 pt-2 animate-hero-fade-up"
                             style={{ animationDelay: "0.2s" }}
                         >
-                            Programmi di allenamento scientifici e personalizzati per scolpire il tuo fisico e potenziare la tua mente.
+                            Il tuo <strong className="font-semibold text-white">Personal Trainer a Frattamaggiore</strong> e Online. Programmi di allenamento scientifici e personalizzati per scolpire il tuo fisico.
                         </p>
 
                         {/* CTA Buttons */}
@@ -87,8 +87,8 @@ export function Hero() {
                                 className="w-full sm:w-auto px-6 py-5 sm:px-8 sm:py-6 text-sm sm:text-base lg:text-lg bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-white/10 text-white font-semibold rounded-xl"
                                 asChild
                             >
-                                <Link href="/transformations">
-                                    <PlayCircle className="text-primary mr-2 w-5 h-5" />
+                                <Link href="https://www.instagram.com/domcast.coach/" target="_blank" rel="noopener noreferrer">
+                                    <Instagram className="text-primary mr-2 w-5 h-5" />
                                     Guarda come lavoro
                                 </Link>
                             </Button>
@@ -148,7 +148,7 @@ export function Hero() {
             </div >
 
             {/* Scroll Indicator */}
-            < div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:flex flex-col items-center gap-2 opacity-60 hover:opacity-100 transition-opacity cursor-pointer" >
+            <div aria-hidden="true" className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:flex flex-col items-center gap-2 opacity-60 hover:opacity-100 transition-opacity cursor-pointer" >
                 <span className="text-[10px] uppercase tracking-widest text-gray-400">Scorri</span>
                 <ChevronDown className="text-primary w-5 h-5" />
             </div >

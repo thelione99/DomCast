@@ -25,20 +25,20 @@ export function Footer() {
 
                 <nav aria-label="Social media">
                     <div className="flex gap-6">
-                        <Link href="https://www.instagram.com/domcast.coach/" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-primary transition-colors p-2 hover:bg-white/5 rounded-full">
-                            <Instagram className="h-6 w-6" />
+                        <Link href="https://www.instagram.com/domcast.coach/" target="_blank" rel="noreferrer" aria-label="Visita il profilo Instagram di Domcast" className="text-gray-400 hover:text-primary transition-colors p-2 hover:bg-white/5 rounded-full">
+                            <Instagram className="h-6 w-6" aria-hidden="true" />
                             <span className="sr-only">Instagram</span>
                         </Link>
-                        <Link href="https://www.facebook.com/domcastfit/" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-primary transition-colors p-2 hover:bg-white/5 rounded-full">
-                            <Facebook className="h-6 w-6" />
+                        <Link href="https://www.facebook.com/domcastfit/" target="_blank" rel="noreferrer" aria-label="Visita la pagina Facebook di Domcast" className="text-gray-400 hover:text-primary transition-colors p-2 hover:bg-white/5 rounded-full">
+                            <Facebook className="h-6 w-6" aria-hidden="true" />
                             <span className="sr-only">Facebook</span>
                         </Link>
-                        <Link href="mailto:info@domcast.it" className="text-gray-400 hover:text-primary transition-colors p-2 hover:bg-white/5 rounded-full">
-                            <Mail className="h-6 w-6" />
+                        <Link href="mailto:info@domcast.it" aria-label="Invia un'email a Domcast" className="text-gray-400 hover:text-primary transition-colors p-2 hover:bg-white/5 rounded-full">
+                            <Mail className="h-6 w-6" aria-hidden="true" />
                             <span className="sr-only">Email</span>
                         </Link>
-                        <Link href="https://maps.app.goo.gl/5Hx7iDc31yjmsKGd6" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-primary transition-colors p-2 hover:bg-white/5 rounded-full">
-                            <MapPin className="h-6 w-6" />
+                        <Link href="https://maps.app.goo.gl/5Hx7iDc31yjmsKGd6" target="_blank" rel="noreferrer" aria-label="Trova Domcast Studio su Google Maps" className="text-gray-400 hover:text-primary transition-colors p-2 hover:bg-white/5 rounded-full">
+                            <MapPin className="h-6 w-6" aria-hidden="true" />
                             <span className="sr-only">Posizione</span>
                         </Link>
                     </div>

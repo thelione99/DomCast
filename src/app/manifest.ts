@@ -16,6 +16,11 @@ export default function manifest(): MetadataRoute.Manifest {
                 type: 'image/x-icon',
             },
             {
+                src: '/Logo_Domcast-4.ico',
+                sizes: '48x48',
+                type: 'image/x-icon',
+            },
+            {
                 src: '/Logo_Domcast-3.png',
                 sizes: '192x192',
                 type: 'image/png',
