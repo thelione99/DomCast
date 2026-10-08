@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { trainingOpenGraph } from "@/lib/seo";
+import { breadcrumbJsonLd, trainingOpenGraph } from "@/lib/seo";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { site } from "@/content/site";
@@ -11,7 +11,7 @@ const description =
   "Domenico Castaldo, personal trainer: laurea in Scienze Motorie, Master in esercizio fisico per il benessere, certificazioni ISSA, FIPL e Pilates Reformer.";
 
 export const metadata: Metadata = {
-  title: "Chi sono · Formazione e certificazioni",
+  title: "Domenico Castaldo, personal trainer · Chi sono",
   description,
   alternates: { canonical: "/qualifiche" },
   openGraph: trainingOpenGraph("/qualifiche", "Domenico Castaldo · Formazione e certificazioni", description),
@@ -103,6 +103,10 @@ export default function QualifichePage() {
       </section>
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd([{ name: "Chi sono", path: "/qualifiche" }])) }}
+      />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { trainingOpenGraph } from "@/lib/seo";
+import { breadcrumbJsonLd, trainingOpenGraph } from "@/lib/seo";
 import { ArrowUpRight } from "lucide-react";
 import { site, fullAddress } from "@/content/site";
 import { whatsappLink, messages } from "@/lib/links";
@@ -7,10 +7,10 @@ import { whatsappLink, messages } from "@/lib/links";
 const description = `Scrivi a ${site.coach} su WhatsApp o via email, oppure passa nello studio Domcast in ${site.address.street} a Frattamaggiore.`;
 
 export const metadata: Metadata = {
-  title: "Contatti",
+  title: "Contatti · Studio a Frattamaggiore",
   description,
   alternates: { canonical: "/contact" },
-  openGraph: trainingOpenGraph("/contact", "Contatti · Domcast", description),
+  openGraph: trainingOpenGraph("/contact", "Contatti · Studio a Frattamaggiore · Domcast", description),
 };
 
 const channels = [
@@ -74,7 +74,17 @@ export default function ContactPage() {
             </li>
           ))}
         </ul>
+
+        <p className="mt-10 max-w-[60ch] text-muted">
+          Lo studio è a {site.address.city}, nella zona di Napoli Nord, vicino a {site.nearbyTowns.slice(0, -1).join(", ")} e{" "}
+          {site.nearbyTowns.at(-1)}. Con il coaching online ti seguo ovunque tu sia.
+        </p>
       </div>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd([{ name: "Contatti", path: "/contact" }])) }}
+      />
     </div>
   );
 }

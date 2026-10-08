@@ -5,6 +5,7 @@ import { site, fullAddress } from "@/content/site";
 import { pilates } from "@/content/pilates";
 import { reviewBy } from "@/content/reviews";
 import { whatsappLink, messages } from "@/lib/links";
+import { breadcrumbJsonLd } from "@/lib/seo";
 import { formatEUR } from "@/lib/format";
 import { ReformerDrawing } from "@/components/pilates/ReformerDrawing";
 import { SpringGlyph, springColors } from "@/components/pilates/SpringGlyph";
@@ -14,7 +15,7 @@ import { WorldLink } from "@/components/world/WorldLink";
 import portrait from "../../../../public/Dom.jpeg";
 
 const description =
-  "Pilates Reformer a Frattamaggiore con Domenico Castaldo, istruttore certificato e laureato in Scienze Motorie: postura, forza profonda e mobilità, al ritmo del tuo respiro.";
+  "Pilates Reformer a Frattamaggiore con Domenico Castaldo, istruttore certificato e laureato in Scienze Motorie: postura, forza profonda e mobilità.";
 
 export const metadata: Metadata = {
   title: "Pilates Reformer a Frattamaggiore",
@@ -30,7 +31,7 @@ const serviceJsonLd = {
   serviceType: "Lezioni di Pilates Reformer",
   description,
   url: `${site.url}/pilates`,
-  areaServed: { "@type": "City", name: site.address.city },
+  areaServed: [site.address.city, ...site.nearbyTowns].map((name) => ({ "@type": "City", name })),
   provider: { "@id": `${site.url}/#studio` },
 };
 
@@ -184,6 +185,9 @@ export default function PilatesPage() {
                 <ArrowUpRight aria-hidden className="mt-1 size-5 shrink-0" />
               </a>
               {site.openingHours && <p className="mt-3 text-muted">{site.openingHours}</p>}
+              <p className="mt-3 max-w-[48ch] text-muted">
+                A Napoli Nord, vicino a {site.nearbyTowns.slice(0, -1).join(", ")} e {site.nearbyTowns.at(-1)}.
+              </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:col-span-6 lg:justify-end lg:self-end">
               <a href={whatsappLink(messages.pilates)} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
@@ -202,6 +206,10 @@ export default function PilatesPage() {
       </section>
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd([{ name: "Pilates Reformer", path: "/pilates" }])) }}
+      />
     </div>
   );
 }

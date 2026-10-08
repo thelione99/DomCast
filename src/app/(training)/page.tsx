@@ -27,7 +27,7 @@ export default function Home() {
       <Plans />
       <PilatesBridge />
       <Reviews />
-      <Faq items={faqs} />
+      <Faq items={faqs} structuredData={false} />
       <Closing />
     </div>
   );
