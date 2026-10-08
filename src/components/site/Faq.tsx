@@ -2,7 +2,18 @@ import { Plus } from "lucide-react";
 
 type Item = { q: string; a: string };
 
-export function Faq({ items, title = "Domande frequenti", id = "domande" }: { items: readonly Item[]; title?: string; id?: string }) {
+/** `structuredData={false}` quando le stesse domande sono già marcate su un'altra pagina: Google ne vuole una copia sola. */
+export function Faq({
+  items,
+  title = "Domande frequenti",
+  id = "domande",
+  structuredData = true,
+}: {
+  items: readonly Item[];
+  title?: string;
+  id?: string;
+  structuredData?: boolean;
+}) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -15,7 +26,7 @@ export function Faq({ items, title = "Domande frequenti", id = "domande" }: { it
 
   return (
     <section id={id} className="section-y border-t border-line">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      {structuredData && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />}
       <div className="container-x grid gap-10 lg:grid-cols-12">
         <h2 className="t-display t-section lg:col-span-5">{title}</h2>
         <div className="border-b border-line lg:col-span-7">

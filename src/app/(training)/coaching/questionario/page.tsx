@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { breadcrumbJsonLd } from "@/lib/seo";
 import { QuestionnaireForm } from "@/components/forms/QuestionnaireForm";
 
 export const metadata: Metadata = {
@@ -32,6 +33,18 @@ export default async function QuestionnairePage({ searchParams }: { searchParams
           <QuestionnaireForm durata={valid} />
         </div>
       </div>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbJsonLd([
+              { name: "Coaching online", path: "/coaching" },
+              { name: "Questionario", path: "/coaching/questionario" },
+            ]),
+          ),
+        }}
+      />
     </div>
   );
 }

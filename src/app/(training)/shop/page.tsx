@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { trainingOpenGraph } from "@/lib/seo";
+import { breadcrumbJsonLd, trainingOpenGraph } from "@/lib/seo";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { site } from "@/content/site";
@@ -11,10 +11,10 @@ const description =
   "Schede di allenamento da 4 settimane scritte da Domenico Castaldo: definizione, forza, glutei e allenamento a casa.";
 
 export const metadata: Metadata = {
-  title: "Schede di allenamento",
+  title: "Schede di allenamento da 4 settimane",
   description,
   alternates: { canonical: "/shop" },
-  openGraph: trainingOpenGraph("/shop", "Schede di allenamento · Domcast", description),
+  openGraph: trainingOpenGraph("/shop", "Schede di allenamento da 4 settimane · Domcast", description),
 };
 
 export default function ShopPage() {
@@ -75,6 +75,10 @@ export default function ShopPage() {
       </section>
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd([{ name: "Schede di allenamento", path: "/shop" }])) }}
+      />
     </div>
   );
 }

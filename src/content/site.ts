@@ -17,6 +17,12 @@ export const site = {
     country: "IT",
   },
   mapsUrl: "https://maps.app.goo.gl/5Hx7iDc31yjmsKGd6",
+  /** Nome, scheda e posizione del profilo Google Maps: nei dati strutturati devono coincidere con il profilo. */
+  googleBusinessName: "Domcast Studio Personal Training",
+  mapsCidUrl: "https://www.google.com/maps?cid=18400543232117769871",
+  geo: { latitude: 40.9417192, longitude: 14.2778041 },
+  /** Comuni vicini allo studio, nella zona di Napoli Nord. */
+  nearbyTowns: ["Grumo Nevano", "Frattaminore", "Cardito", "Crispano", "Arzano", "Casandrino"],
   instagram: { handle: "domcast.coach", url: "https://www.instagram.com/domcast.coach/" },
   facebook: { handle: "domcastfit", url: "https://www.facebook.com/domcastfit/" },
   /** Profilo Google Maps "Domcast Studio Personal Training": verificato il 7 ottobre 2026 (aggiornare a mano). */

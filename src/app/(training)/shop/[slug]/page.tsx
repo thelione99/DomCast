@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { trainingOpenGraph } from "@/lib/seo";
+import { breadcrumbJsonLd, trainingOpenGraph } from "@/lib/seo";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight } from "lucide-react";
@@ -19,11 +19,16 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const program = programBySlug(slug);
   if (!program) return {};
+  const description = `${program.description} Scheda di 4 settimane con video, ${formatEUR(program.price)}.`;
   return {
     title: `${program.name} · Scheda di allenamento`,
-    description: program.description,
+    description,
     alternates: { canonical: `/shop/${program.slug}` },
-    openGraph: trainingOpenGraph(`/shop/${program.slug}`, `${program.name} · Domcast`, program.description),
+    openGraph: {
+      ...trainingOpenGraph(`/shop/${program.slug}`, `${program.name} · Domcast`, description),
+      // La copertina della scheda (copertina/route.tsx) al posto dell'immagine generica.
+      images: [{ url: `/shop/${program.slug}/copertina`, width: 1200, height: 630, alt: `Scheda ${program.name} · Domcast` }],
+    },
   };
 }
 
@@ -39,6 +44,7 @@ export default async function ProgramPage({ params }: { params: Promise<{ slug: 
     "@type": "Product",
     name: `Scheda ${program.name}`,
     description: program.description,
+    image: `${site.url}/shop/${program.slug}/copertina`,
     brand: { "@type": "Brand", name: "Domcast" },
     offers: {
       "@type": "Offer",
@@ -46,6 +52,7 @@ export default async function ProgramPage({ params }: { params: Promise<{ slug: 
       priceCurrency: "EUR",
       availability: "https://schema.org/InStock",
       url: `${site.url}/shop/${program.slug}`,
+      seller: { "@id": `${site.url}/#studio` },
     },
   };
 
@@ -113,6 +120,17 @@ export default async function ProgramPage({ params }: { params: Promise<{ slug: 
       </section>
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbJsonLd([
+              { name: "Schede di allenamento", path: "/shop" },
+              { name: program.name, path: `/shop/${program.slug}` },
+            ]),
+          ),
+        }}
+      />
     </div>
   );
 }

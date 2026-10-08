@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { trainingOpenGraph } from "@/lib/seo";
+import { breadcrumbJsonLd, trainingOpenGraph } from "@/lib/seo";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { site } from "@/content/site";
@@ -13,10 +13,10 @@ const description =
   "Coaching online con Domenico Castaldo: programma di allenamento su misura, indicazioni alimentari, check settimanali e correzione della tecnica sui tuoi video.";
 
 export const metadata: Metadata = {
-  title: "Coaching online",
+  title: "Personal trainer online · Coaching su misura",
   description,
   alternates: { canonical: "/coaching" },
-  openGraph: trainingOpenGraph("/coaching", "Coaching online · Domcast", description),
+  openGraph: trainingOpenGraph("/coaching", "Personal trainer online · Coaching su misura · Domcast", description),
 };
 
 const steps = [
@@ -49,6 +49,7 @@ export default async function CoachingPage({ searchParams }: { searchParams: Pro
     "@context": "https://schema.org",
     "@type": "Service",
     name: "Coaching online",
+    serviceType: "Personal trainer online",
     description,
     url: `${site.url}/coaching`,
     provider: { "@id": `${site.url}/#studio` },
@@ -154,6 +155,10 @@ export default async function CoachingPage({ searchParams }: { searchParams: Pro
       <Faq items={faqs} />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd([{ name: "Coaching online", path: "/coaching" }])) }}
+      />
     </div>
   );
 }
