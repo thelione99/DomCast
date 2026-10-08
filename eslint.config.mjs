@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // File AppleDouble creati da macOS sui dischi esterni
+    "**/._*",
+    ".claude/**",
   ]),
 ]);
 
